@@ -5,57 +5,33 @@
 \usepackage{caption}
 \usepackage{float}
 \usepackage{amsmath}
-% *** CITATION PACKAGES ***
-%
-\ifCLASSOPTIONcompsoc
-  % IEEE Computer Society needs nocompress option
-  % requires cite.sty v4.0 or later (November 2003)
-  % \usepackage[nocompress]{cite}
-\else
-  % normal IEEE
-  % \usepackage{cite}
-\fi
-% *** GRAPHICS RELATED PACKAGES ***
-%
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{listings}
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
-  % declare the path(s) where your graphic files are
-  % \graphicspath{{../pdf/}{../jpeg/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 \else
-  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
-  % will default to the driver specified in the system graphics.cfg if no
-  % driver is specified.
-  % \usepackage[dvips]{graphicx}
-  % declare the path(s) where your graphic files are
-  % \graphicspath{{../eps/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.eps}
 \fi
-% graphicx was written by David Carlisle and Sebastian Rahtz. It is
-% required if you want graphics, photos, etc. graphicx.sty is already
-% installed on most LaTeX systems. The latest version and documentation
-% can be obtained at: 
-% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
-% Another good source of documentation is "Using Imported Graphics in
-% LaTeX2e" by Keith Reckdahl which can be found at:
-% http://www.ctan.org/tex-archive/info/epslatex/
-%
-% NOTE: PDF hyperlink and bookmark features are not required in IEEE
-%       papers and their use requires extra complexity and work.
-% *** IF USING HYPERREF BE SURE AND CHANGE THE EXAMPLE PDF ***
-% *** TITLE/SUBJECT/AUTHOR/KEYWORDS INFO BELOW!!           ***
-\newcommand\MYhyperrefoptions{bookmarks=true,bookmarksnumbered=true,
-pdfpagemode={UseOutlines},plainpages=false,pdfpagelabels=true,
-colorlinks=true,linkcolor={black},citecolor={black},urlcolor={black},
-pdftitle={Bare Demo of IEEEtran.cls for Computer Society Journals},%<!CHANGE!
-pdfsubject={Typesetting},%<!CHANGE!
-pdfauthor={Michael D. Shell},%<!CHANGE!
-pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
-             template}}%<^!CHANGE!
+\hyphenation{op-tical net-works semi-conduc-tor}
+\usepackage{cite}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage[justification=centering]{caption}
+
+\lstset{
+	language=C,                	   % choose the language of the code
+	stepnumber=1,                   % the step between two line-numbers.        
+  	numbersep=5pt,                  % how far the line-numbers are from the code
+  	showspaces=false,               % show spaces adding particular underscores
+  	showstringspaces=false,         % underline spaces within strings
+  	showtabs=false,                 % show tabs within strings adding particular underscores
+  	tabsize=5,                      % sets default tabsize to 2 spaces
+  	captionpos=none,                   % sets the caption-position to bottom
+  	breaklines=true,                % sets automatic line breaking
+  	breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
+  	keywordstyle=\color{red},
+  	basicstyle=\ttfamily\footnotesize,
+  	title=\lstname,                 % show the filename of files included with \lstinputlisting;
+}
 
 \begin{document}
 %
@@ -235,7 +211,6 @@ Para ello habría que:
 \section{Modelamiento}
 \subsection{Función de la elipse}
 A continuación en la figura \ref{Elipse} se puede ver una elipse para posteriormente analizar su función matemática:
-
 \begin{figure}[h!]
   \includegraphics[width=0.48\textwidth]{Elipse.png}
   \caption{Elipse}
@@ -337,11 +312,122 @@ Esta fórmula se utiliza para determinar la distancia entre 2 puntos en un plano
 \newline
 la distancia total entre el punto final y el inicial es dividida por un número random con ello se genera la traslación de un objeto desde un punto hacía otro; lo que se traslada es la viewport
 \section{Diseño del problema}
-
+A continuación, se especifica un diseño preliminar mas un diseño detallado del problema y de la solución
 \subsection{Diseño preliminar}
-
+La formulación del modelo en base al sistema solar y a la teoría del fin del sol en aproximadamente 10.000 millones de años aprox. es un modelo, debido a que los cálculos realizados son a escala respecto al sistema solar real, es decir, X pixeles son equivalentes a algunos años luz. Los tamaños de los planetas también son a escala, los tamaños de cada uno son equivalentes a la vida real, así también su color y movimiento.
 \subsection{Diseño detallado}
+OpenGl es el principal entorno de desarrollo, para la creación de aplicaciones graficas portátiles e interactivas en  2D y 3D. 
+La API se suele utilizar para interactuar con una unidad de procesamiento gráfico (GPU), para lograr la aceleración por hardware de renderizado.
+Desde su introducción en 1992, OpenGl se ha convertido en la Interfaz de Programación de Aplicaciones (API) gráficas más usada por la industria, brindando miles de aplicaciones a una gran variedad de plataformas de computación. A su vez, OpenGL fomenta la innovación y velocidad del desarrollo de aplicaciones incorporando una alta variedad de formas de rendering, mapeo de texturas, efectos especiales y otras poderosas funciones de visualización\cite{opengl}.
+\\
+Se utilizo el Entorno de Desarrollo Integrado (IDE) llamado NetBeans, el cual permite detectar rápidamente errores de sintaxis. Permite también iniciar en modo debug, herramienta con la cual es posible realizar un seguimiento del valor de cada variable en cada frame de la aplicación. Además, resulta mucho más fácil el proceso de compilación, ya que es un proceso mas gráfico que la ejecucion en una consola, además no discrimina el sistema operativo a ocupar.\\
+\\
+OpenGL trabaja con una pila de matrices, las cuales representan cada objeto que se muestra en la escena. A continuación se detallará el trabajo y la sintaxis de cada una de ellas.
+%
+\lstinputlisting{ejemplo.c} 
+%
+Extracto de código que nos permite demostrar cuando se crea una nueva matriz\\
+Las transformaciones se aplican en un orden predefinido, es decir, primero se realiza la traslación (Desde el origen hacía el punto $(x,y,z)$) para posteriormente realizar la rotación sobre el eje deseado.Esto es apoyado por la literatura y la cátedra.\\
+\\
+Las transformaciones geométricas en OpenGL están implementadas, a continuación se mostraran en mas detalle cada una de ellas:
+%
+\subsubsection{Rotación}
+\label{rotacion}
+Para rotar, en openGL se utiliza la función \textbf{glRotate}, la cual rota en torno a un eje a elección, utilizando transformaciones geométricas.\\La función tiene la siguiente forma:
+%
+\lstinputlisting{rotacion.c} 
+%
+Donde $angle$ es el ángulo que se le aplicará y $(x,y,z)$ es sobre el eje que se aplicará la rotación.\\Resulta importante destacar que, tanto el ángulo de rotación como las coordenadas, pueden ser variables de tipo \textbf{float} y \textbf{double}.
+\\
+Dicha función no utiliza la misma matriz para realizar la transformación geométrica que se mencionó anteriormente, la matriz que utiliza es una variación:\\
 
+\[
+	\left( 
+		\begin{array}{cccc}
+			x^{2}(1-c)+c & xy(1-c)-zs & xz(1-c)+ys & 0 \\
+			yx(1-c)+zs & y^{2}(1-c)+c & yz(1-c)-xs & 0 \\
+			xz(1-c)-ys & yz(1-c)+xs & z^{2}(1-c)+c & 0 \\
+			0 & 0 & 0 & 1
+		\end{array}
+	\right)
+\]\\
+
+Donde: $c = s=\sin\theta$ y $\cos\theta$.
+\subsubsection{Traslación}
+Para trasladar en openGl se utiliza la función \textbf{glTranslate}, la cuál está determinada por un vector que se proyecta desde el origen hasta la coordenada $(x,y,z)$.\\La función tiene la siguiente forma:
+%
+\lstinputlisting{traslacion.c} 
+%
+$(x,y,z)$ es hacía dónde se quiere mover el objeto. Esta función utiliza la misma matriz descrita en la sección \ref{rotacion}
+\subsubsection{Vista}
+Para fijar la vista en un punto determinado desde dónde se observará la escena, en openGL se utiliza la función \textbf{gluLookAt}. \\La función tiene la siguiente forma:
+%
+\lstinputlisting{vista.c}
+%
+Donde:
+%
+\begin{itemize}
+	\item \textbf{centerX, centerY, centerZ}: Es la coordenada $(x,y,z)$ que especifica el punto de referencia hacía el cual se posicionará el punto de vista.
+	\item \textbf{\textit{upX, upY, upZ}}: Es el vector que determina la dirección.
+	\item \textbf{eyeX, eyeY, eyeZ}: Es la coordenada $(x,y,z)$ en la que se posicionará el punto de vista.
+%
+Se debe entender el punto de vista como un objeto más en la escena. Al verlo de esta manera, podemos concluir que ésta tiene asociada una matriz, para así poder modificar la orientación y/o ubicación del punto de vista en la escena.\\
+En otras palabras, se pueden aplicar transformaciones geométricas (Rotación y traslación)  para situar la  vista donde se requiera. Esto se puede representar con lo siguiente:
+
+\[
+	M = T * R
+\]
+
+Siendo $M$: matriz de la viewport, $T$: matriz de traslación y $R$: matriz de rotación.\\La imagen a continuación, puede aclarar un poco mas las cosas:
+
+\begin{figure}[h!]
+	\includegraphics[width=0.4\textwidth, height=0.25\textwidth]{viewport.png}
+	\centering
+	\caption{Representación gráfica del punto de vista en la escena}
+\end{figure}
+%
+\end{itemize}
+\subsubsection{Órbita}
+La función para empezar la rotación y darle un sentido, en openGL se conoce como \textbf{getOrbitStartPoint}, esta función recibe como parámetro el ángulo de rotación del planeta, el vector en dónde se almacenarán las coordenadas luego de la rotación, y la posición en $(x,y,z)$ respecto al origen desde la cuál se comienza a realizar la órbita.
+%
+\lstinputlisting{orbita.c}
+%
+Esta función realiza el producto de la multiplicación de la matriz de rotación respecto al eje $y$ por el vector de la posición inicial, la cual corresponde al planeta correspondiente.
+\subsubsection{loadSkyBox}
+La idea detrás de la técnica Skybox, es renderizar un cubo gigante con una textura particular, posicionando la escena y la viewport en el centro\cite{skybox}.\\
+Se utilizará la técnica basada en texturas (mapeo de la textura en un cubo), se aplica un tipo especial de textura en el cubo. Esta textura, se crea de forma que para cada cara del cubo, se posicione la textura que le corresponde y que al interior del cubo las esquinas estén perfectamente alineadas, para poder asi crear la sensación de una textura continua.\\
+\\
+Un ejemplo de esta técnica es la siguiente imagen:
+%
+
+\begin{figure}[h!]
+	\includegraphics[width=0.4\textwidth, height=0.25\textwidth]{Skybox1.png}
+	\centering
+	\caption{Ejemplo de una textura que se pueden asignar a las caras de un palco cúbico, con caras etiquetadas}
+\end{figure}
+%
+El procedimiento que se realiza, es cortar cada segmento en una imagen diferente y, en el interior del programa, cada una se trabaja como textura independiente. Posterior a eso, se crea un cubo gigante y se le aplica la textura, el resultado se muestra a continuación:\\
+%
+\begin{figure}[h!]
+	\includegraphics[width=0.4\textwidth, height=0.25\textwidth]{Skybox2.png}
+	\centering
+	\caption{Ejemplo de una textura para una cúpula celeste hemisférica}
+\end{figure}
+%
+\\
+El resultado es un cubo, la aplicación de esta técnica al proyecto es poder darle la forma continua al sistema solar, sin tener un fin a la vista.\\
+Se utiliza el formato de imagen (TGA), ya que es la forma más óptima de ahorrar los costos de renderizando\cite{foley}, utilizando un formato de imagen que es de fácil lectura y de una calidad menor.
+%
+\subsection{Menu de opciones}
+
+Como prototipo, se tienen las siguientes opciones:
+
+\begin{enumerate}
+	\item \textbf{Iniciar movimiento}: Inicia la animación de los planetas orbitando.
+	\item \textbf{Detener movimiento}: Detiene la animación de los planetas orbitando.
+	\item \textbf{Salir}: Salir del sistema solar.
+\end{enumerate}
+Cabe mencionar que como es un prototipo, aun no se han agregado la totalidad de las funcionalidades mencionadas en los requerimientos, se incorporaron los que están completamente ejecutados y sin fallas, para la entrega final se mostrara el software con la totalidad de los requerimientos aplicados.
 \section{Metodología y herramientas a utilizar}
 \subsection{Metodología}
 La metodología a utilizar es el análisis y diseño estructurado ya que con esta metodología se tiene un orden lógico en los pasos a seguir para el desarrollo correcto del proyecto.
@@ -353,145 +439,32 @@ Se posee 2 notebooks con similares características, procesadores Intel core I3 
 Preliminarmente se establecen las siguientes herramientas para la programación, tales como:
 \begin{itemize}
  \item Netbeans IDE 8.0.2\\
- 	Entre algunas cosas destaca la rapida observación de errores sintaxicos y fácil compilación.
+ 	Entre algunas cosas destaca la rápida observación de errores de sintaxis y fácil compilación.
  \item OpenGL\\
  	Principal entorno de desarrollo, para la creación de aplicaciones gráficas portátiles e interactivas en
  	2D y 3D \cite{opengl}.
 \end{itemize}
 \section{Análisis de resultados}
 \subsection{Validación de resultados}
-Como se especificó en  la presentación preliminar de la idea, para realizar esta aplicación se toma como base un proyecto anterior del ramo de computación gráfica, el cual se llama "Representación del sistema solar en OpenGL". De este codigo se toman las funciones principales para generar la representacion y se eliminan funciones que no son utilizadas como las que representan estrellas específicas, etc. En el codigo se representa Plutón que no se encontraba representado y además se comienza generando todos los planetas alineados tras el Sol para mantener un orden mas lógico en un principio.
+Como se especificó en  la presentación preliminar de la idea, para realizar esta aplicación se toma como base un proyecto anterior del ramo de computación gráfica, el cual se llama "Representación del sistema solar en OpenGL". De este código se toman las funciones principales para generar la representación y se eliminan funciones que no son utilizadas como las que representan estrellas específicas, etc. En el código se representa Plutón que no se encontraba representado y además se comienza generando todos los planetas alineados tras el Sol para mantener un orden mas lógico en un principio.
 \subsection{Rendimiento preliminar}
-En esta etapa de prototipado del proyecto, el equipo de trabajo se enfoca en implementar las funciones más importantes del proyecto base además de aprender sobre la utilización de la herramienta OpenGL. A la base tomada para el desarrollo se le eliminan una serie de funciones que en realidad no serán necesarias por lo tanto esto entregara un código mas compacto y fácil de comprender.\\
+En esta etapa de prototipo del proyecto, el equipo de trabajo se enfoca en implementar las funciones más importantes del proyecto base además de aprender sobre la utilización de la herramienta OpenGL. A la base tomada para el desarrollo se le eliminan una serie de funciones que en realidad no serán necesarias por lo tanto esto entregara un código mas compacto y fácil de comprender.\\
 Preliminarmente no se identifican problemas relacionados a la presentación en pantalla de la aplicación al ser ejecutada, la velocidad de movimiento (rotación) es más que suficiente para identificar los movimientos de los planetas.\\
 \subsection{Problemáticas y funciones faltantes}
-
+%
+Como se mencionó anteriormente, la función principal que se debe completar es la que da fin al sol, aumentando su radio y su color, transformándose en una gigante roja\cite{far}. De esta manera, absorvera la orbita y los planetas Mercurio y Venus, dejando asi la temperatura de la tierra en mas de 1000º, haciendo asi imposible la vida en la tierra.\\
+\\
+La función secundaria que se quiere implementar es tener la vista desde cada uno de los planetas, lo cual permitiria tener una perspectiva distinta del fenómeno y de las traslaciones.
 \section{Plan de Trabajo}
 Se realiza una carta Gantt para darle fechas limites a cada tarea que este proyecto conlleva. Se adjunta para no entorpecer el modelo de este documento y para que la carta Gantt se pueda analizar de mejor manera.
-% needed in second column of first page if using \IEEEpubid
-%\IEEEpubidadjcol
-
-% An example of a floating figure using the graphicx package.
-% Note that \label must occur AFTER (or within) \caption.
-% For figures, \caption should occur after the \includegraphics.
-% Note that IEEEtran v1.7 and later has special internal code that
-% is designed to preserve the operation of \label within \caption
-% even when the captionsoff option is in effect. However, because
-% of issues like this, it may be the safest practice to put all your
-% \label just after \caption rather than within \caption{}.
 %
-% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
-% option should be used if it is desired that the figures are to be
-% displayed while in draft mode.
 %
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-%\caption{Simulation Results.}
-%\label{fig_sim}
-%\end{figure}
-
-% Note that IEEE typically puts floats only at the top, even when this
-% results in a large percentage of a column being occupied by floats.
-% However, the Computer Society has been known to put floats at the bottom.
-
-
-% An example of a double column floating figure using two subfigures.
-% (The subfig.sty package must be loaded for this to work.)
-% The subfigure \label commands are set within each subfloat command,
-% and the \label for the overall figure must come after \caption.
-% \hfil is used as a separator to get equal spacing.
-% Watch out that the combined width of all the subfigures on a 
-% line do not exceed the text width or a line break will occur.
-%
-%\begin{figure*}[!t]
-%\centering
-%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
-%\label{fig_first_case}}
-%\hfil
-%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
-%\label{fig_second_case}}
-%\caption{Simulation results.}
-%\label{fig_sim}
-%\end{figure*}
-%
-% Note that often IEEE papers with subfigures do not employ subfigure
-% captions (using the optional argument to \subfloat[]), but instead will
-% reference/describe all of them (a), (b), etc., within the main caption.
-
-
-% An example of a floating table. Note that, for IEEE style tables, the 
-% \caption command should come BEFORE the table. Table text will default to
-% \footnotesize as IEEE normally uses this smaller font for tables.
-% The \label must come after \caption as always.
-%
-%\begin{table}[!t]
-%% increase table row spacing, adjust to taste
-%\renewcommand{\arraystretch}{1.3}
-% if using array.sty, it might be a good idea to tweak the value of
-% \extrarowheight as needed to properly center the text within the cells
-%\caption{An Example of a Table}
-%\label{table_example}
-%\centering
-%% Some packages, such as MDW tools, offer better commands for making tables
-%% than the plain LaTeX2e tabular which is used here.
-%\begin{tabular}{|c||c|}
-%\hline
-%One & Two\\
-%\hline
-%Three & Four\\
-%\hline
-%\end{tabular}
-%\end{table}
-
-
-% Note that IEEE does not put floats in the very first column - or typically
-% anywhere on the first page for that matter. Also, in-text middle ("here")
-% positioning is not used. Most IEEE journals use top floats exclusively.
-% However, Computer Society journals sometimes do use bottom floats - bear
-% this in mind when choosing appropriate optional arguments for the
-% figure/table environments.
-% Note that, LaTeX2e, unlike IEEE journals, places footnotes above bottom
-% floats. This can be corrected via the \fnbelowfloat command of the
-% stfloats package.
-
-
-
-
-
 \section{Conclusiones}
-
+%
 Como inicio para un buen proyecto, siempre se deben llevar a cabo investigaciones que puedan determinar cual tema abordar y que herramientas utilizar para un optimo desempeño durante este.\\
 El tema abordado nos llena de optimismo para trabajar en el, sumado a los conceptos de computación gráfica aprendidos más la investigación pertinente, nos motiva a dar el 100\% de nuestro esfuerzo para hacer de este un gran proyecto.
-
-% trigger a \newpage just before the given reference
-% number - used to balance the columns on the last page
-% adjust value as needed - may need to be readjusted if
-% the document is modified later
-%\IEEEtriggeratref{8}
-% The "triggered" command can be changed if desired:
-%\IEEEtriggercmd{\enlargethispage{-5in}}
-
-% references section
-
-% can use a bibliography generated by BibTeX as a .bbl file
-% BibTeX documentation can be easily obtained at:
-% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
-% The IEEEtran BibTeX style support page is at:
-% http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
-% argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
 %
-% <OR> manually copy in the resultant .bbl file
-% set second argument of \begin to the number of references
-% (used to reserve space for the reference number labels box)
-
 \bibliographystyle{IEEEtran}
 \bibliography{bibi}
 % that's all folks
 \end{document}
-

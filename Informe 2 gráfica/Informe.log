@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.6)  2 JAN 2016 04:09
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  2 JAN 2016 15:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -452,40 +452,88 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \mathdisplay@stack=\toks25
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count110
+\lst@gtempboxa=\box31
+\lst@token=\toks26
+\lst@length=\count111
+\lst@currlwidth=\dimen136
+\lst@column=\count112
+\lst@pos=\count113
+\lst@lostspace=\dimen137
+\lst@width=\dimen138
+\lst@newlines=\count114
+\lst@lineno=\count115
+\lst@maxwidth=\dimen139
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
+\c@lstnumber=\count116
+\lst@skipnumbers=\count117
+\lst@framebox=\box32
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2013/08/26 1.5b listings configuration
+))
+Package: listings 2013/08/26 1.5b (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 373.
+Package: cite 2010/09/10  v 5.3
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/08/26 1.5b listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
 ) (./Informe.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
 \openout1 = `Informe.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Info: Redefining \. on input line 60.
-LaTeX Info: Redefining \% on input line 60.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Info: Redefining \. on input line 36.
+LaTeX Info: Redefining \% on input line 36.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count110
-\scratchdimen=\dimen136
-\scratchbox=\box31
-\nofMPsegments=\count111
-\nofMParguments=\count112
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count113
-\MPscratchDim=\dimen137
-\MPnumerator=\count114
-\makeMPintoPDFobject=\count115
-\everyMPtoPDFconversion=\toks27
+\scratchcounter=\count118
+\scratchdimen=\dimen140
+\scratchbox=\box33
+\nofMPsegments=\count119
+\nofMParguments=\count120
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count121
+\MPscratchDim=\dimen141
+\MPnumerator=\count122
+\makeMPintoPDFobject=\count123
+\everyMPtoPDFconversion=\toks28
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -536,48 +584,50 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 166.
+\c@lstlisting=\count124
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 142.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <14> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 166.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 142.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 166.
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 166.
-LaTeX Font Info:    Try loading font information for U+pzd on input line 166.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 142.
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 142.
+LaTeX Font Info:    Try loading font information for U+pzd on input line 142.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/upzd.fd
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 193.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 169.
 LaTeX Font Info:    Font shape `OT1/phv/bx/sc' in size <14> not available
-(Font)              Font shape `OT1/phv/b/sc' tried instead on input line 193.
+(Font)              Font shape `OT1/phv/b/sc' tried instead on input line 169.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 198.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 174.
 
-Underfull \hbox (badness 6380) in paragraph at lines 199--200
+Underfull \hbox (badness 6380) in paragraph at lines 175--176
 []\OT1/ppl/m/n/12 Implementar gr[]afi-ca-men-te la si-mu-la-ci[]on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--200
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
 
  []
 
 
-Underfull \hbox (badness 4242) in paragraph at lines 202--203
+Underfull \hbox (badness 4242) in paragraph at lines 178--179
 []\OT1/ppl/m/n/12 Conocer y re-la-cio-nar t[]ermi-nos de la
  []
 
 <planetas.jpg, id=1, 401.5pt x 301.125pt>
 File: planetas.jpg Graphic file (type jpg)
  <use planetas.jpg>
-Package pdftex.def Info: planetas.jpg used on input line 213.
+Package pdftex.def Info: planetas.jpg used on input line 189.
 (pdftex.def)             Requested size: 232.19843pt x 174.15178pt.
 
 
@@ -586,15 +636,15 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <sol.jpg, id=2, 1284.8pt x 722.7pt>
 File: sol.jpg Graphic file (type jpg)
  <use sol.jpg>
-Package pdftex.def Info: sol.jpg used on input line 222.
+Package pdftex.def Info: sol.jpg used on input line 198.
 (pdftex.def)             Requested size: 247.6778pt x 139.3104pt.
-LaTeX Info: Redefining \. on input line 227.
-LaTeX Info: Redefining \% on input line 227.
+LaTeX Info: Redefining \. on input line 203.
+LaTeX Info: Redefining \% on input line 203.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 6412) in paragraph at lines 227--227
+Underfull \hbox (badness 6412) in paragraph at lines 203--203
  \OT1/phv/b/sc/14 4. Des-crip-ci[]on de la so-lu-ci[]on
  []
 
@@ -605,129 +655,287 @@ Underfull \vbox (badness 1354) has occurred while \output is active []
 <Elipse.png, id=13, 511.9125pt x 311.1625pt>
 File: Elipse.png Graphic file (type png)
  <use Elipse.png>
-Package pdftex.def Info: Elipse.png used on input line 240.
+Package pdftex.def Info: Elipse.png used on input line 215.
 (pdftex.def)             Requested size: 247.6778pt x 150.54803pt.
-LaTeX Font Info:    Calculating math sizes for size <22> on input line 249.
+LaTeX Font Info:    Calculating math sizes for size <22> on input line 224.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 249.
+(Font)              size <20.74> substituted on input line 224.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <15.39993> not available
-(Font)              size <14.4> substituted on input line 249.
+(Font)              size <14.4> substituted on input line 224.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <22> not available
-(Font)              size <20.74> substituted on input line 249.
+(Font)              size <20.74> substituted on input line 224.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <15.39993> not available
-(Font)              size <14.4> substituted on input line 249.
+(Font)              size <14.4> substituted on input line 224.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 249.
+(Font)              size <20.74> substituted on input line 224.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <15.39993> not available
-(Font)              size <14.4> substituted on input line 249.
+(Font)              size <14.4> substituted on input line 224.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 249.
+(Font)              size <20.74> substituted on input line 224.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <15.39993> not available
-(Font)              size <14.4> substituted on input line 249.
+(Font)              size <14.4> substituted on input line 224.
 
-LaTeX Info: Redefining \. on input line 255.
-LaTeX Info: Redefining \% on input line 255.
+LaTeX Info: Redefining \. on input line 230.
+LaTeX Info: Redefining \% on input line 230.
 [2 <./planetas.jpg> <./sol.jpg> <./Elipse.png>]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <12> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 255.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 230.
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--267
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 276--278
+Underfull \hbox (badness 10000) in paragraph at lines 240--242
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--289
+Underfull \hbox (badness 10000) in paragraph at lines 251--253
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 302--303
+Underfull \hbox (badness 10000) in paragraph at lines 262--264
 
  []
 
 
-Overfull \hbox (1.38869pt too wide) detected at line 326
+Underfull \hbox (badness 10000) in paragraph at lines 277--278
+
+ []
+
+
+Overfull \hbox (1.38869pt too wide) detected at line 301
 \OML/cmm/m/it/12 T \OT1/cmr/m/n/12 = [] \OMS/cmsy/m/n/12 ^^B [] \OT1/cmr/m/n/12
  = []
  []
 
 
-Underfull \hbox (badness 3439) in paragraph at lines 326--328
+Underfull \hbox (badness 3439) in paragraph at lines 301--303
 \OT1/ppl/m/n/12 La tras-la-ci[]on per-mi-te sa-ber el ra-dio que
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--328
+Underfull \hbox (badness 10000) in paragraph at lines 301--303
 
  []
 
 
-Underfull \hbox (badness 2503) in paragraph at lines 329--330
+Underfull \hbox (badness 2503) in paragraph at lines 304--305
 []\OT1/ppl/m/n/12 Esta f[]ormu-la se uti-li-za pa-ra de-ter-mi-nar
  []
 
 
-Underfull \hbox (badness 5147) in paragraph at lines 329--330
+Underfull \hbox (badness 5147) in paragraph at lines 304--305
 \OT1/ppl/m/n/12 2D, aun-que el sis-te-ma est[]a re-pre-sen-ta-do
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 329--330
+Underfull \hbox (badness 10000) in paragraph at lines 304--305
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--334
+Underfull \hbox (badness 10000) in paragraph at lines 307--309
 
  []
 
-LaTeX Info: Redefining \. on input line 350.
-LaTeX Info: Redefining \% on input line 350.
+LaTeX Info: Redefining \. on input line 318.
+LaTeX Info: Redefining \% on input line 318.
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 365--367
+Underfull \hbox (badness 5726) in paragraph at lines 319--327
+\OT1/ppl/m/n/12 pa-ra la crea-ci[]on de apli-ca-cio-nes gra-fi-cas
+ []
+
+
+Underfull \hbox (badness 4699) in paragraph at lines 319--327
+\OT1/ppl/m/n/12 a una gran va-rie-dad de pla-ta-for-mas de
+ []
+
+
+Underfull \hbox (badness 2401) in paragraph at lines 319--327
+\OT1/ppl/m/n/12 compu-taci[]on. A su vez, OpenGL fo-men-ta
+ []
+
+
+Underfull \hbox (badness 4634) in paragraph at lines 319--327
+\OT1/ppl/m/n/12 (IDE) lla-ma-do Net-Beans, el cual per-mi-te
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 319--327
+\OT1/ppl/m/n/12 de-tec-tar r[]api-da-men-te erro-res de sin-ta-xis.
+ []
+
+
+Underfull \hbox (badness 4582) in paragraph at lines 319--327
+\OT1/ppl/m/n/12 Per-mi-te tam-bi[]en ini-ciar en mo-do de-bug,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 319--327
+
+ []
+
+
+Underfull \hbox (badness 2020) in paragraph at lines 319--327
+\OT1/ppl/m/n/12 las cua-les re-pre-sen-tan ca-da ob-je-to que se
+ []
+
+
+Underfull \hbox (badness 3209) in paragraph at lines 319--327
+\OT1/ppl/m/n/12 mues-tra en la es-ce-na. A con-ti-nua-ci[]on se
+ []
+
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 327.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+) (./ejemplo.c
+LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <9> not available
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 3.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 329--334
+\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x; y; z\OT1/cmr/m/n/12 )$\OT1/ppl/m/n/12 ) pa
+-ra pos-te-rior-men-te rea-li-zar la
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--334
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--334
+\OT1/ppl/m/n/12 est[]an im-ple-men-ta-das, a con-ti-nua-ci[]on se
+ []
+
+(./rotacion.c)
+Underfull \hbox (badness 1394) in paragraph at lines 340--343
+\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x; y; z\OT1/cmr/m/n/12 )$ \OT1/ppl/m/n/12 es 
+so-bre el eje que se apli-car[]a la
+ []
+
+
+Underfull \hbox (badness 3302) in paragraph at lines 340--343
+\OT1/ppl/m/n/12 Resulta im-por-tan-te des-ta-car que, tan-to el
+ []
+
+
+Underfull \hbox (badness 1796) in paragraph at lines 340--343
+[]\OT1/ppl/m/n/12 angu-lo de ro-ta-ci[]on co-mo las coor-de-na-das,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 340--343
+
+ []
+
+
+Overfull \hbox (36.17957pt too wide) detected at line 353
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--354
+
+ []
+
+LaTeX Info: Redefining \. on input line 359.
+LaTeX Info: Redefining \% on input line 359.
+[4] (./traslacion.c) (./vista.c)
+Underfull \hbox (badness 3713) in paragraph at lines 372--376
+[]\OT1/ppl/b/n/12 eyeX, eyeY, eyeZ\OT1/ppl/m/n/12 : Es la coor-de-na-da
+ []
+
+<viewport.png, id=37, 494.84875pt x 333.245pt>
+File: viewport.png Graphic file (type png)
+ <use viewport.png>
+Package pdftex.def Info: viewport.png used on input line 384.
+(pdftex.def)             Requested size: 206.39285pt x 128.99889pt.
+ (./orbita.c)
+Underfull \hbox (badness 2478) in paragraph at lines 397--402
+\OT1/ppl/m/n/12 Se uti-li-zar[]a la t[]ecni-ca ba-sa-da en tex-tu-ras
+ []
+
+
+Underfull \hbox (badness 2351) in paragraph at lines 397--402
+\OT1/ppl/m/n/12 tex-tu-ra, se crea de for-ma que pa-ra ca-da
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 397--402
+
+ []
+
+LaTeX Info: Redefining \. on input line 402.
+LaTeX Info: Redefining \% on input line 402.
+[5 <./viewport.png>] <Skybox1.png, id=43, 513.92pt x 385.44pt>
+File: Skybox1.png Graphic file (type png)
+
+<use Skybox1.png>
+Package pdftex.def Info: Skybox1.png used on input line 404.
+(pdftex.def)             Requested size: 206.39558pt x 128.99527pt.
+ <Skybox2.png, id=44, 256.96pt x 256.96pt>
+File: Skybox2.png Graphic file (type png)
+ <use Skybox2.png>
+Package pdftex.def Info: Skybox2.png used on input line 412.
+(pdftex.def)             Requested size: 206.39949pt x 129.00116pt.
+LaTeX Info: Redefining \. on input line 450.
+LaTeX Info: Redefining \% on input line 450.
+
+[6 <./Skybox1.png> <./Skybox2.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 451--453
 \OT1/ppl/m/n/12 pa-ra iden-ti-fi-car los mo-vi-mien-tos de los
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 365--367
+Underfull \hbox (badness 10000) in paragraph at lines 451--453
 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 455--458
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 455--458
+\OT1/ppl/m/n/12 La fun-ci[]on se-cun-da-ria que se quie-re
+ []
+
+
+Underfull \hbox (badness 2065) in paragraph at lines 455--458
+\OT1/ppl/m/n/12 im-ple-men-tar es te-ner la vis-ta des-de ca-da
  []
 
 (./Informe.bbl
-Underfull \hbox (badness 2253) in paragraph at lines 44--46
-[]\OT1/ppl/m/n/9 Atspace. (Di-ciem-bre 15, 2014.) Tu-to-rial 25 - sky-box.
+Underfull \hbox (badness 5008) in paragraph at lines 48--50
+[]\OT1/ppl/m/n/9 E. Sie-gel. (Enero 2, 2014.) The far fu-tu-re of our
  []
 
 
-Overfull \hbox (15.27571pt too wide) in paragraph at lines 44--46
-\OT1/ppl/m/n/9 http://ogldev.atspace.co.uk/www/tutorial25/tutorial25.html. 
+Underfull \hbox (badness 2512) in paragraph at lines 48--50
+\OT1/ppl/m/n/9 so-lar sys-tem. $https : / / medium . com / starts-[]with-[]a-[]
+bang /
  []
 
 )
-LaTeX Info: Redefining \. on input line 496.
-LaTeX Info: Redefining \% on input line 496.
- [4] (./Informe.aux
+LaTeX Info: Redefining \. on input line 470.
+LaTeX Info: Redefining \% on input line 470.
+ [7] (./Informe.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -737,13 +945,13 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 4958 strings out of 493304
- 74233 string characters out of 6139871
- 152671 words of memory out of 5000000
- 8333 multiletter control sequences out of 15000+600000
- 48591 words of font info for 105 fonts, out of 8000000 for 9000
- 957 hyphenation exceptions out of 8191
- 38i,8n,38p,642b,327s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 7020 strings out of 493304
+ 101252 string characters out of 6139872
+ 210689 words of memory out of 5000000
+ 10330 multiletter control sequences out of 15000+600000
+ 53687 words of font info for 119 fonts, out of 8000000 for 9000
+ 960 hyphenation exceptions out of 8191
+ 38i,8n,49p,645b,1147s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
@@ -752,17 +960,21 @@ type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/font
-s/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
-palatino/uplri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfding/uz
-dr.pfb>
-Output written on Informe.pdf (4 pages, 277765 bytes).
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/
+uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/urw/palatino/uplri8a.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/urw/zapfding/uzdr.pfb>
+Output written on Informe.pdf (7 pages, 694588 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 119 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{float}
+\usepackage{amsmath}
 % *** CITATION PACKAGES ***
 %
 \ifCLASSOPTIONcompsoc
@@ -224,17 +225,123 @@ Skybox es una tecnica que permite que una escena se vea más grande y más impre
   \label{muerte}
 \end{figure}
 \section{Descripción de la solución propuesta}
-Tomando como base el proyecto que solo muestra una representación del sistema solar, se pretende que la representación de las trayectorias de los planetas sea automática, con esto se refiere a que se vea el movimiento continuo de la trayectoria de los planetas y que eventualmente de a poco los planetas comiencen a cambiar su trayectoria, los cuales sumados al aumento del diámetro del sol, como se muestra en (imagen \ref{muerte}), empiecen a ser absorbidos por este, lo cual los hará desaparecer\cite{far}.\\
+Tomando como base el proyecto que solo muestra una representación del sistema solar, se pretende que la representación de las trayectorias de los planetas sea automática, con esto se refiere a que se vea el movimiento continuo de la trayectoria de los planetas y que eventualmente de a poco los planetas comiencen a cambiar su trayectoria, los cuales sumados al aumento del diámetro del sol, como se muestra en \ref{muerte}, empiecen a ser absorbidos por este, lo cual los hará desaparecer\cite{far}.\\
 Para ello habría que:
 \begin{itemize}
  \item Modificar algunas funciones relacionadas con la traslación de estas diferentes figuras (diferentes planetas)
  \item Editar y acondicionar las formulas de elipse.
  \item Aumentar el radio del sol.
 \end{itemize}   %funcion %imagen de traslacion de planetas
-\section{Modelamiento del problema}
+\section{Modelamiento}
+\subsection{Función de la elipse}
+A continuación en la figura \ref{Elipse} se puede ver una elipse para posteriormente analizar su función matemática:
+
+\begin{figure}[h!]
+  \includegraphics[width=0.48\textwidth]{Elipse.png}
+  \caption{Elipse}
+  \captionsetup{justification=centering}
+  \label{Elipse}
+\end{figure}
+
+Se utiliza la función de la elipse:
+\begin{huge}
+\begin{center}
+$\frac{x^{2}}{a^{2}} + \frac{y^{2}}{b^{2}}$
+\end{center}
+\end{huge}
+Donde $a>0$ y $b>0$, las coordenadas de las abscisas. La elipse se encuentra centrada en el origen (h, k = 0). La ecuación de la elipse modela la ubicación de la órbita de los planetas.
+\subsection{Transformaciones 3d}
+Se utilizan una serie de trasnformaciones en el desarrollo del problema, estas seran mostradas a continuación:
+\subsubsection{Rotación}
+Claramente como se desea implementar un sistema solar, un detalle importante a destacar es la rotación que tiene cada planeta; la rotación está definida por la siguiente matriz:
+\begin{center}
+$
+\begin{bmatrix}
+cos\theta & -sin\theta \\
+sin\theta & cos\theta 
+\end{bmatrix}
+$
+\end{center}
+En vista de que se trabaja en tres dimensiones es necesario definir las matrices para cada tipo de rotación que se pueden obtener desde la matriz de rotacion general de 2x2:\\
+Rotación sobre el eje x:\\
+\[
+	R_{xy}(\theta) = \left[ 
+		\begin{array}{cccc}
+			1 & 0 & 0 & 0 \\
+			0 & \cos\theta & -\sin\theta & 0 \\
+			0 & \sin\theta & \cos\theta & 0 \\
+			0 & 0 & 0 & 1
+		\end{array}
+	\right]
+\]
+Rotación sobre el eje y:\\
+\[
+	R_{yz}(\theta) = \left[ 
+		\begin{array}{cccc}
+			\cos\theta & 0 & \sin\theta & 0 \\
+			0 & 1 & 0 & 0 \\
+			-\sin\theta & 0 & \cos\theta & 0 \\
+			0 & 0 & 0 & 1
+		\end{array}
+	\right]	
+\]
+Rotación sobre el eje z:\\
+\[
+	R_{zx}(\theta) = \left[ 
+		\begin{array}{cccc}
+			\cos\theta & -\sin\theta & 0 & 0 \\
+			\sin\theta & \cos\theta & 0 & 0 \\
+			0 & 0 & 1 & 0 \\
+			0 & 0 & 0 & 1
+		\end{array}
+	\right]	
+\]
+
+Se describe como rotación en los planos $xy$, $yz$ y $zx$, pues resulta más fácil asociar la rotación en 3 dimensiones de esa forma. La órbita de los planetas se genera aplicando una rotación sobre el eje $y$ (En el origen, teniendo el solo como referencia) con un ángulo $0^{\circ}\leq\theta\leq360^{\circ}$, el cual aumenta en cada frame de la escena.
+\subsubsection{Traslación}
+La matriz que describe la traslación de los objetos en la escena es la siguiente:\\
+
+\[ 
+	T = \left[ 
+			\begin{array}{cccc}
+				1 & 0 & 0 & T_{x} \\
+				0 & 1 & 0 & T_{y} \\
+				0 & 0 & 1 & T_{z} \\
+				0 & 0 & 0 & 1 
+			\end{array}
+		\right] \times 
+		\left[ 
+			\begin{array}{c}
+				v_{x} \\
+				v_{y} \\
+				v_{z} \\
+				v_{w} 
+			\end{array}
+		\right] = 
+		\left(
+			\begin{array}{ccc}
+				v'_{x} , & v'_{y} , & v'_{z}
+			\end{array}
+		\right)
+\]
+La traslación permite saber el radio que tendrá la órbita del planeta respecto al sol. Es en torno a esta transformación que se aplica la rotación, por lo tanto para cada frame de la escena se aplica un pequeño aumento en la rotación respectiva.\\
+\subsection{Distancia entre dos puntos}
+Esta fórmula se utiliza para determinar la distancia entre 2 puntos en un plano en 2D, aunque el sistema está representado en 3 dimensiones. Los planetas se mueven respecto al eje y y la posición de los mismos está determinada sólo por sus coordenadas en el eje x y en el eje z:\\
+\[ 
+	x_{new} = \frac{\sqrt{X_{final}^{2}+X_{inicial}^{2}}}{100} 
+\]
+\newline
+\[
+	z_{new} = \frac{\sqrt{Z_{final}^{2}+Z_{inicial}^{2}}}{100}
+\]
+\newline
+la distancia total entre el punto final y el inicial es dividida por un número random con ello se genera la traslación de un objeto desde un punto hacía otro; lo que se traslada es la viewport
 \section{Diseño del problema}
+
 \subsection{Diseño preliminar}
+
 \subsection{Diseño detallado}
+
 \section{Metodología y herramientas a utilizar}
 \subsection{Metodología}
 La metodología a utilizar es el análisis y diseño estructurado ya que con esta metodología se tiene un orden lógico en los pasos a seguir para el desarrollo correcto del proyecto.
@@ -251,8 +358,14 @@ Preliminarmente se establecen las siguientes herramientas para la programación,
  	Principal entorno de desarrollo, para la creación de aplicaciones gráficas portátiles e interactivas en
  	2D y 3D \cite{opengl}.
 \end{itemize}
-\section{Evaluacion}
-\subsection{Evaluacion de las herramientas}
+\section{Análisis de resultados}
+\subsection{Validación de resultados}
+Como se especificó en  la presentación preliminar de la idea, para realizar esta aplicación se toma como base un proyecto anterior del ramo de computación gráfica, el cual se llama "Representación del sistema solar en OpenGL". De este codigo se toman las funciones principales para generar la representacion y se eliminan funciones que no son utilizadas como las que representan estrellas específicas, etc. En el codigo se representa Plutón que no se encontraba representado y además se comienza generando todos los planetas alineados tras el Sol para mantener un orden mas lógico en un principio.
+\subsection{Rendimiento preliminar}
+En esta etapa de prototipado del proyecto, el equipo de trabajo se enfoca en implementar las funciones más importantes del proyecto base además de aprender sobre la utilización de la herramienta OpenGL. A la base tomada para el desarrollo se le eliminan una serie de funciones que en realidad no serán necesarias por lo tanto esto entregara un código mas compacto y fácil de comprender.\\
+Preliminarmente no se identifican problemas relacionados a la presentación en pantalla de la aplicación al ser ejecutada, la velocidad de movimiento (rotación) es más que suficiente para identificar los movimientos de los planetas.\\
+\subsection{Problemáticas y funciones faltantes}
+
 \section{Plan de Trabajo}
 Se realiza una carta Gantt para darle fechas limites a cada tarea que este proyecto conlleva. Se adjunta para no entorpecer el modelo de este documento y para que la carta Gantt se pueda analizar de mejor manera.
 % needed in second column of first page if using \IEEEpubid

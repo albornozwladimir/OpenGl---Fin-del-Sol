@@ -364,19 +364,16 @@ void estrella (float x, float y , float z){
 //Funciones creadoras de los planetas
 void sol(float x, float y, float z){
     glPushMatrix ();
-    
     GLfloat light_direction[] = { 1.0, 1.0, 0.0 };
     GLfloat light_position[] = { 1.0, 0.0, 1.0, 1.0 };
     GLfloat mat_emision[] = {1.0, 0.9, 0.0, 1.0};
     GLfloat mat_diffuse[] = {1.0, 0.9, 0.0, 1.0f};
     GLfloat mat_specular[] = {1.0, 1.0, 0.0, 1.0f};
     GLfloat mat_ambient[] = {1.0, 1.0, 0.0, 1.0f};
-    
     glLightfv (GL_LIGHT0, GL_SPOT_DIRECTION, light_direction);
     glLightfv (GL_LIGHT0, GL_POSITION, light_position);
     glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, mat_emision);
     glMaterialfv (GL_FRONT, GL_DIFFUSE, mat_diffuse);
-    
     glTranslatef (x, y, z); 
     render_esfera(2, 100, 32 , 0);
     glPopMatrix ();
@@ -397,7 +394,7 @@ void mercurio(float x,float y,float z_){
     glMaterialfv (GL_FRONT, GL_AMBIENT, mat_ambient_mercurio);
     glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 360.0);*/
     anos = ((float) dia / 365)*360;
-    glRotatef( anos/0.24, 0,1,0 );
+    glRotatef( anos/0.34, 0,1,0 );
     glTranslatef (x, y, z_); 
     render_esfera(0.03, 100, 32 , 3);    
     //glutSolidSphere (0.03, 100, 100);
@@ -611,7 +608,7 @@ void urano (float x, float y, float z_){
     anos = ((float) dia / 365)*360;
     glRotatef(anos/84, 0,1,0 );
     glTranslatef (x, y, z_); 
-    render_esfera(0.342, 100, 32 , 7);
+    render_esfera(0.362, 100, 32 , 7);
     glGetFloatv(GL_MODELVIEW_MATRIX, urano_matrix);
     glPopMatrix ();
     
@@ -633,7 +630,7 @@ void urano (float x, float y, float z_){
 void neptuno (float x, float y, float z_){
     glPushMatrix ();
     GLfloat mat_emision[] = {0.0, 0.0, 0.3, 1.0};
-    GLfloat mat_diffuse[] = {0.5, 0.5, 0.5, 1.0f};
+    GLfloat mat_diffuse[] = {0.3, 0.5, 0.5, 1.0f};
     GLfloat mat_specular[] = {0.5, 0.5, 0.5, 1.0f};
     GLfloat mat_ambient[] = {0.5, 0.5, 0.5, 1.0f};
     if(explo==0)
@@ -677,7 +674,6 @@ void pluton (float x, float y, float z_){
     glTranslatef (x, y, z_); 
     render_esfera(0.170, 100, 32 , 9);
     glPopMatrix ();
-    
     //Agregamos el nombre del planeta sólo al principio
     if ( textOFF == 0 && der == -5 && arr == 0 && z == -35) {
         glPushMatrix ();
@@ -1030,42 +1026,24 @@ void createMenu(void){
     glutAddMenuEntry("Detener Movimiento", 4);
     planets_submenu_id = glutCreateMenu(menu);
     glutAddMenuEntry("Sol", 6);
-    glutAddMenuEntry("Mercurio", 7);
-    glutAddMenuEntry("Venus", 8);
-    glutAddMenuEntry("Tierra", 9);
-    glutAddMenuEntry("Marte", 10);
-    glutAddMenuEntry("Jupiter", 11);
-    glutAddMenuEntry("Saturno", 12);
-    glutAddMenuEntry("Urano", 13);
-    glutAddMenuEntry("Neptuno", 14);
-    glutAddMenuEntry("Pluton", 15);
+    //glutAddMenuEntry("Mercurio", 7);
+    //glutAddMenuEntry("Venus", 8);
+    //glutAddMenuEntry("Tierra", 9);
+    //glutAddMenuEntry("Marte", 10);
+    //glutAddMenuEntry("Jupiter", 11);
+    //glutAddMenuEntry("Saturno", 12);
+    //glutAddMenuEntry("Urano", 13);
+    //glutAddMenuEntry("Neptuno", 14);
+    //glutAddMenuEntry("Pluton", 15);
     menu_id = glutCreateMenu(menu);
-    glutAddMenuEntry("Iniciar Movimiento", 1);
+    //glutAddMenuEntry("Iniciar Movimiento", 1);
     glutAddSubMenu("Sistema Solar", solarSytem_submenu_id);
     glutAddSubMenu("Ir a", planets_submenu_id);
-    glutAddMenuEntry("Acerca de", 16);
-    glutAddMenuEntry("FullScreen", 17);
+    //glutAddMenuEntry("Acerca de", 16);
+    //glutAddMenuEntry("FullScreen", 17);
     glutAddMenuEntry("Salir", 18);
     glutAttachMenu(GLUT_RIGHT_BUTTON);
 }
-
-//Función para trabajar con las teclas del teclado (No teclas especiales)
-void Keyboard(unsigned char key, int x, int y){
-    switch (key) {
-        //Aumenta velocidad
-        case 'j':
-            if ( speed-0.5 > 0 )
-                speed-=0.05;
-            else
-                speed = 0.001;
-            break;
-        //Disminuye la velocidad
-        case 'k':
-            speed+=0.05;
-            break;
-    }
-}
-
 //Función para trabajar con teclas especiales (F1,F2,...)
 void specialkeyevent( int key, int Xx, int Yy ) {
     // manejo de teclas especiales
@@ -1084,7 +1062,6 @@ void specialkeyevent( int key, int Xx, int Yy ) {
         case GLUT_KEY_F6:    der = 0.00; break;
         case GLUT_KEY_F8:    explo = 1; break;
         case GLUT_KEY_F7:    aux2= 1; break;
-        
    }
    // redibuja la escena
    glutPostRedisplay();
@@ -1143,7 +1120,7 @@ int main(int argc, char** argv) {
     glutSpecialFunc( specialkeyevent );
     //Controlamos no sólo las teclas especiales, las normales también 
     //(Para aumentar y reducir velocidad de rotación)
-    glutKeyboardFunc (Keyboard);
+    //glutKeyboardFunc (Keyboard);
     glutIdleFunc( animacion );
     aux = carga_texturas();
     // lazo de eventos

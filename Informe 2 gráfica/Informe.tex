@@ -315,6 +315,14 @@ la distancia total entre el punto final y el inicial es dividida por un número 
 A continuación, se especifica un diseño preliminar mas un diseño detallado del problema y de la solución
 \subsection{Diseño preliminar}
 La formulación del modelo en base al sistema solar y a la teoría del fin del sol en aproximadamente 10.000 millones de años aprox. es un modelo, debido a que los cálculos realizados son a escala respecto al sistema solar real, es decir, X pixeles son equivalentes a algunos años luz. Los tamaños de los planetas también son a escala, los tamaños de cada uno son equivalentes a la vida real, así también su color y movimiento.
+\\
+Dado esto, en pocas palabras seria de la siguiente forma:
+\begin{itemize}
+ \item Calcular la trayectoria de los planetas alrededor del sol
+ \item Implementar un menú que permita navegar entre las
+ distintas funcionalidades presentes en el programa
+ \item Aplicar la técnica de SkyBox en la escena
+\end{itemize}
 \subsection{Diseño detallado}
 OpenGl es el principal entorno de desarrollo, para la creación de aplicaciones graficas portátiles e interactivas en  2D y 3D. 
 La API se suele utilizar para interactuar con una unidad de procesamiento gráfico (GPU), para lograr la aceleración por hardware de renderizado.
@@ -446,10 +454,13 @@ Preliminarmente se establecen las siguientes herramientas para la programación,
 \end{itemize}
 \section{Análisis de resultados}
 \subsection{Validación de resultados}
-Como se especificó en  la presentación preliminar de la idea, para realizar esta aplicación se toma como base un proyecto anterior del ramo de computación gráfica, el cual se llama "Representación del sistema solar en OpenGL". De este código se toman las funciones principales para generar la representación y se eliminan funciones que no son utilizadas como las que representan estrellas específicas, etc. En el código se representa Plutón que no se encontraba representado y además se comienza generando todos los planetas alineados tras el Sol para mantener un orden mas lógico en un principio.
+Como se especificó en  la presentación preliminar de la idea, para realizar esta aplicación se toma como base un proyecto anterior del ramo de computación gráfica, el cual se llama "Representación del sistema solar en OpenGL". De este código se toman las funciones principales para generar la representación.\\
+En el código se representa Plutón que no se encontraba representado, además se comienza generando todos los planetas alineados tras el Sol para mantener un orden mas lógico en un principio.\\
+Se toma como base científica las distancias normalizadas de los planetas y sus velocidades de rotación.
 \subsection{Rendimiento preliminar}
 En esta etapa de prototipo del proyecto, el equipo de trabajo se enfoca en implementar las funciones más importantes del proyecto base además de aprender sobre la utilización de la herramienta OpenGL. A la base tomada para el desarrollo se le eliminan una serie de funciones que en realidad no serán necesarias por lo tanto esto entregara un código mas compacto y fácil de comprender.\\
 Preliminarmente no se identifican problemas relacionados a la presentación en pantalla de la aplicación al ser ejecutada, la velocidad de movimiento (rotación) es más que suficiente para identificar los movimientos de los planetas.\\
+El rendimiento gráfico de la aplicación es prudente(por la sencillez), rápido(por como se aprecia) y optimo(por como se realiza).
 \subsection{Problemáticas y funciones faltantes}
 %
 Como se mencionó anteriormente, la función principal que se debe completar es la que da fin al sol, aumentando su radio y su color, transformándose en una gigante roja\cite{far}. De esta manera, absorvera la orbita y los planetas Mercurio y Venus, dejando asi la temperatura de la tierra en mas de 1000º, haciendo asi imposible la vida en la tierra.\\
@@ -457,6 +468,23 @@ Como se mencionó anteriormente, la función principal que se debe completar es 
 La función secundaria que se quiere implementar es tener la vista desde cada uno de los planetas, lo cual permitiria tener una perspectiva distinta del fenómeno y de las traslaciones.
 \section{Plan de Trabajo}
 Se realiza una carta Gantt para darle fechas limites a cada tarea que este proyecto conlleva. Se adjunta para no entorpecer el modelo de este documento y para que la carta Gantt se pueda analizar de mejor manera.
+%
+\section{Experimentos}
+En la imagen se puede observar los planetas alineados, esto muestra el punto de partida del programa.
+%
+\begin{figure}[h!]
+	\includegraphics[width=0.4\textwidth, height=0.25\textwidth]{1.png}
+	\centering
+	\caption{Experimento con las técnicas que se mencionaron aplicadas}
+\end{figure}
+%
+En la imagen se puede observar un momento de la órbita de los planetas, cuando estos ya están orbitando y trasladándose a través de su propia elipse y su propia velocidad.
+%
+\begin{figure}[h!]
+	\includegraphics[width=0.4\textwidth, height=0.25\textwidth]{2.png}
+	\centering
+	\caption{Experimento que muestra las posiciones de los planetas luego de rotaciones}
+\end{figure}
 %
 %
 \section{Conclusiones}

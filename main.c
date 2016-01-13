@@ -335,19 +335,30 @@ void render_esfera(float m_Radius, int sl, int st , int id_textura) {
 }
 
 //Función creadora de estrellas (NO USADA)
-void estrella (float x, float y , float z){
+void muerte (float x, float y , float z){
+    int basura = 0;
+    float contador = -3.9;
     glPushMatrix ();
-    GLfloat mat_emision_estrellas[] = {1.0, 1.0, 1.0, 1.0};
-    GLfloat mat_diffuse_estrellas[] = {1.0, 1.0, 1.0, 1.0f};
-    GLfloat mat_specular_estrellas[] = {1.0, 1.0, 1.0, 1.0f};
-    GLfloat mat_ambient_estrellas[] = {1.0, 1.0, 1.0, 1.0f};
-    glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, mat_emision_estrellas);
-    glMaterialfv (GL_FRONT, GL_DIFFUSE, mat_diffuse_estrellas);
-    glMaterialfv (GL_FRONT, GL_SPECULAR, mat_specular_estrellas);
-    glMaterialfv (GL_FRONT, GL_AMBIENT, mat_ambient_estrellas);
-    glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 360.0);
-    glTranslatef (x, y,z); 
-    glutSolidSphere (0.015, 10, 10);
+    GLfloat light_direction[] = { 1.0, 1.0, 0.0 };
+    GLfloat light_position[] = { 1.0, 0.0, 1.0, 1.0 };
+    GLfloat mat_emision[] = {1.0, 0.9, 0.0, 1.0};
+    GLfloat mat_diffuse[] = {1.0, 0.9, 0.0, 1.0f};
+    GLfloat mat_specular[] = {1.0, 1.0, 0.0, 1.0f};
+    GLfloat mat_ambient[] = {1.0, 1.0, 0.0, 1.0f};
+    glLightfv (GL_LIGHT0, GL_SPOT_DIRECTION, light_direction);
+    glLightfv (GL_LIGHT0, GL_POSITION, light_position);
+    glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, mat_emision);
+    glMaterialfv (GL_FRONT, GL_DIFFUSE, mat_diffuse);
+    glTranslatef (x, y, z);
+    while(basura==0){
+        glScalef(contador,contador,contador);
+        render_esfera(2, 100, 32 , 0);
+        glPopMatrix ();
+        contador+=0.5;
+        if(contador >= -1)
+            basura+=1;
+    }
+    render_esfera(2, 100, 32 , 0);
     glPopMatrix ();
 }
 //Funciones creadoras de los planetas
@@ -709,6 +720,7 @@ void menuChoise ( ){
             hora += 50.0;
             aux2 = 1;
             gluLookAt(der, arr, z, 0.0, 0.0, 0.0, 0, 1, 0);
+            //muerte();
             break;
         case 2:
             printf("Iniciar Movimiento \n" );

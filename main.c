@@ -1,8 +1,11 @@
-/***********************
- *                     *
- *  L I B R E R I A S  * 
- *                     *
- ***********************/
+/***************************
+ *                         *
+ *   Andres Barrera        *
+ *   Wladimir Albornoz     *
+ *                         *
+ ***************************/
+//
+//Librerias
 #include <GL/glut.h>
 #include <GL/glu.h>
 #include <stdlib.h>
@@ -11,20 +14,11 @@
 #include <math.h>
 #include <string.h>
 #include <time.h>
-
-/*************************
- *                       *
- *  C O N S T A N T E S  * 
- *                       *
- *************************/
+//Constantes
 #define NUM_TEXTURAS 16
 #define MAX_TAM_ESFERA 10000
-
-/***************************
- *                         *
- *  E S T R U C T U R A S  * 
- *                         *
- ***************************/
+//
+//Estructuras
 typedef struct config_tag {
     short int SCREEN_SIZE_X;
     short int SCREEN_SIZE_Y;
@@ -56,11 +50,7 @@ struct vertice{
     float tv;
 }vertice;
 
-/***********************
- *                     *
- *  V A R I A B L E S  * 
- *                     *
- ***********************/
+//Variables
 GLfloat anos;
 GLint dia;
 GLint hora;
@@ -125,7 +115,6 @@ double saturnoXYZ[3];
 double uranoXYZ[3];
 double neptunoXYZ[3];
 double plutonXYZ[3];
-//double nemesisXYZ[3];
 //Ajustamos los valores de las coordenadas XYZ
 float sol_[]={0.0,0.0,0.0};
 float mercurio_[]={2.0,0.0,0.0};
@@ -346,23 +335,8 @@ void render_esfera(float m_Radius, int sl, int st , int id_textura) {
 }
 
 //Función creadora de estrellas (NO USADA)
-void estrella (float x, float y , float z){
-    glPushMatrix ();
-    GLfloat mat_emision_estrellas[] = {1.0, 1.0, 1.0, 1.0};
-    GLfloat mat_diffuse_estrellas[] = {1.0, 1.0, 1.0, 1.0f};
-    GLfloat mat_specular_estrellas[] = {1.0, 1.0, 1.0, 1.0f};
-    GLfloat mat_ambient_estrellas[] = {1.0, 1.0, 1.0, 1.0f};
-    glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, mat_emision_estrellas);
-    glMaterialfv (GL_FRONT, GL_DIFFUSE, mat_diffuse_estrellas);
-    glMaterialfv (GL_FRONT, GL_SPECULAR, mat_specular_estrellas);
-    glMaterialfv (GL_FRONT, GL_AMBIENT, mat_ambient_estrellas);
-    glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 360.0);
-    glTranslatef (x, y,z); 
-    glutSolidSphere (0.015, 10, 10);
-    glPopMatrix ();
-}
-//Funciones creadoras de los planetas
-void sol(float x, float y, float z){
+void muerte (float x, float y , float z){
+    float i = 1.5;
     glPushMatrix ();
     GLfloat light_direction[] = { 1.0, 1.0, 0.0 };
     GLfloat light_position[] = { 1.0, 0.0, 1.0, 1.0 };
@@ -374,7 +348,27 @@ void sol(float x, float y, float z){
     glLightfv (GL_LIGHT0, GL_POSITION, light_position);
     glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, mat_emision);
     glMaterialfv (GL_FRONT, GL_DIFFUSE, mat_diffuse);
-    glTranslatef (x, y, z); 
+    anos = anos/365;
+    glScalef( anos, anos,anos );
+    glTranslatef (x, y, z);
+    render_esfera(2, 100, 32 , 0);
+    glPopMatrix ();
+}
+//Funciones creadoras de los planetas
+void sol(float x, float y, float z){
+    float i = 1.5;
+    glPushMatrix ();
+    GLfloat light_direction[] = { 1.0, 1.0, 0.0 };
+    GLfloat light_position[] = { 1.0, 0.0, 1.0, 1.0 };
+    GLfloat mat_emision[] = {1.0, 0.9, 0.0, 1.0};
+    GLfloat mat_diffuse[] = {1.0, 0.9, 0.0, 1.0f};
+    GLfloat mat_specular[] = {1.0, 1.0, 0.0, 1.0f};
+    GLfloat mat_ambient[] = {1.0, 1.0, 0.0, 1.0f};
+    glLightfv (GL_LIGHT0, GL_SPOT_DIRECTION, light_direction);
+    glLightfv (GL_LIGHT0, GL_POSITION, light_position);
+    glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, mat_emision);
+    glMaterialfv (GL_FRONT, GL_DIFFUSE, mat_diffuse);
+    glTranslatef (x, y, z);
     render_esfera(2, 100, 32 , 0);
     glPopMatrix ();
 }
@@ -390,9 +384,6 @@ void mercurio(float x,float y,float z_){
     else
         glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, mat_emision_explosion);
     glMaterialfv (GL_FRONT, GL_DIFFUSE, mat_diffuse);
-    /*glMaterialfv (GL_FRONT, GL_SPECULAR, mat_specular_mercurio);
-    glMaterialfv (GL_FRONT, GL_AMBIENT, mat_ambient_mercurio);
-    glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 360.0);*/
     anos = ((float) dia / 365)*360;
     glRotatef( anos/0.34, 0,1,0 );
     glTranslatef (x, y, z_); 
@@ -710,6 +701,7 @@ void getOrbitStartPoint (double angulo, double *coordenadas, float x, float y, f
 }
 
 void menuChoise ( ){
+    float flotante = 0;
     double angulo;
     switch (value){
         case 0:
@@ -717,150 +709,30 @@ void menuChoise ( ){
             gluLookAt(der, arr, z, 0.0, 0.0, 0.0, 0, 1, 0);
             break;
         case 1:
-            printf("Iniciar Catastrofe\n");
+            printf("Catastrofe\n");
+            textOFF = 1;
             hora += 50.0;
             aux2 = 1;
             gluLookAt(der, arr, z, 0.0, 0.0, 0.0, 0, 1, 0);
+            muerte(der, arr, z);
             break;
-        case 3:
+        case 2:
             printf("Iniciar Movimiento \n" );
             textOFF = 1;
             hora += 50.0;
             gluLookAt(der, arr, z, 0.0, 0.0, 0.0, 0, 1, 0);
             break;
-        case 4:
+        case 3:
             printf("Detener Movimiento\n");
             gluLookAt(der, arr, z, 0.0, 0.0, 0.0, 0, 1, 0);
             hora  = 0.0;
             break;
-        case 6:
+        case 4:
             printf("Sol\n");
             walkFromTO (der, z, 0.0, -7.6);
             gluLookAt(der, arr, z, 0.0, 0.0, 0.0, 0, 1, 0);
             break;
-        case 7:
-            printf("Mercurio\n");
-            if ( walkFromTO ( der, z, mercurio_[0], mercurio_[2] ) ) {
-                gluLookAt(der, 0.0, z, 0.0, 0.0, 0.0, 0, 1, 0);
-            }/* else {
-                hora += 50.0;
-                angulo = (((float) dia / 365)*360)/(2.4*(speed));
-                getOrbitStartPoint(angulo, mercurioXYZ, mercurio_[0], mercurio_[1], mercurio_[2]);
-                gluLookAt(mercurioXYZ[0], 0.0, mercurioXYZ[2], 0.0, 0.0, 0.0, 0, 1, 0);
-            }
-            printf ( "MERCURIO(x,y,z) = (%F, %F, %F)\n", mercurioXYZ[0], mercurioXYZ[1], mercurioXYZ[2]);
-            */
-            break;
-        case 8:
-            printf("Venus\n");
-            if ( walkFromTO ( der, z, venus_[0], venus_[2] ) ) {
-                gluLookAt(der, 0.0, z, 0.0, 0.0, 0.0, 0, 1, 0);
-            } else {
-                hora += 50.0;
-                angulo = (((float) dia / 365)*360)/(6*(speed));
-                getOrbitStartPoint(angulo, venusXYZ, venus_[0], venus_[1], venus_[2]);
-                gluLookAt(venusXYZ[0], 0.0, venusXYZ[2], 0.0, 0.0, 0.0, 0, 1, 0);
-            }
-            printf ( "VENUS(x,y,z) = (%F, %F, %F)\n", venusXYZ[0], venusXYZ[1], venusXYZ[2]);
-            break;
-        case 9:
-            printf("Tierra\n");
-            if ( walkFromTO ( der, z, tierra_[0], tierra_[2] ) ) {
-                gluLookAt(der, 0.0, z, 0.0, 0.0, 0.0, 0, 1, 0);
-            } else {
-                hora += 50.0;
-                angulo = (((float) dia / 686)*360)/(1*(speed));
-                getOrbitStartPoint(angulo, tierraXYZ, tierra_[0], tierra_[1], tierra_[2]);
-                gluLookAt(tierraXYZ[0], 0.0, tierraXYZ[2], 0.0, 0.0, 0.0, 0, 1, 0);
-            }
-            printf ( "TIERRA(x,y,z) = (%F, %F, %F)\n", tierraXYZ[0], tierraXYZ[1], tierraXYZ[2]);
-            break;
-        case 10:
-            printf("Marte\n");
-            if ( walkFromTO ( der, z, marte_[0], marte_[2] ) ) {
-                gluLookAt(der, 0.0, z, 0.0, 0.0, 0.0, 0, 1, 0);
-            } else {
-                hora += 50.0;
-                angulo = (((double) dia / 365)*360)/(18.8*(speed));
-                getOrbitStartPoint(angulo, marteXYZ, marte_[0], marte_[1], marte_[2]);
-                gluLookAt(marteXYZ[0], 0.0, marteXYZ[2], 0.0, 0.0, 0.0, 0, 1, 0);
-            }
-            printf ( "MARTE(x,y,z) = (%F, %F, %F)\n", marteXYZ[0], marteXYZ[1], marteXYZ[2]);
-            break;
-        case 11:
-            printf("Jupiter\n");
-            if ( walkFromTO ( der, z, jupiter_[0], jupiter_[2] ) ) {
-                gluLookAt(der, 0.0, z, 0.0, 0.0, 0.0, 0, 1, 0);
-            } else {
-                hora += 50.0;
-                angulo = (((double) dia / 365)*360)/(110*(speed));
-                getOrbitStartPoint(angulo, jupiterXYZ, jupiter_[0], jupiter_[1], jupiter_[2]);
-                gluLookAt(jupiterXYZ[0], 0.0, jupiterXYZ[2], 0.0, 0.0, 0.0, 0, 1, 0);
-            }
-            printf ( "JUPITER(x,y,z) = (%F, %F, %F)\n", jupiterXYZ[0], jupiterXYZ[1], jupiterXYZ[2]);
-            break;
-        case 12:
-            printf("Saturno\n");
-            if ( walkFromTO ( der, z, saturno_[0], saturno_[2] ) ) {
-                gluLookAt(der, 0.0, z, 0.0, 0.0, 0.0, 0, 1, 0);
-            } else {
-                hora += 50.0;
-                angulo = (((double) dia / 365)*360)/(290*(speed));
-                getOrbitStartPoint(angulo, saturnoXYZ, saturno_[0],saturno_[1],saturno_[2]);
-                gluLookAt(saturnoXYZ[0], 0.0, saturnoXYZ[2], 0.0, 0.0, 0.0, 0, 1, 0);
-            }
-            printf ( "SATURNO(x,y,z) = (%F, %F, %F)\n", saturnoXYZ[0], saturnoXYZ[1], saturnoXYZ[2]);
-            break;
-        case 13:
-            printf("Urano\n");
-            if ( walkFromTO ( der, z, urano_[0], urano_[2] ) ) {
-                gluLookAt(der, 0.0, z, 0.0, 0.0, 0.0, 0, 1, 0);
-            } else {
-                hora += 50.0;
-                angulo = (((float) dia / 365)*360)/(840*(speed));
-                getOrbitStartPoint(angulo, uranoXYZ, urano_[0],urano_[1],urano_[2]);
-                gluLookAt(uranoXYZ[0], 0.0, uranoXYZ[2], 0.0, 0.0, 0.0, 0, 1, 0);
-            }
-            printf ( "URANO(x,y,z) = (%F, %F, %F)\n", uranoXYZ[0], uranoXYZ[1], uranoXYZ[2]);
-            break;
-        case 14:
-            printf("Neptuno\n");
-            if ( walkFromTO ( der, z, neptuno_[0], neptuno_[2] ) ) {
-                gluLookAt(der, 0.0, z, 0.0, 0.0, 0.0, 0, 1, 0);
-            } else {
-                hora += 50.0;
-                angulo = (((float) dia / 365)*360)/(164*(speed));
-                getOrbitStartPoint(angulo, neptunoXYZ, neptuno_[0],neptuno_[1],neptuno_[2]);
-                gluLookAt(neptunoXYZ[0], 0.0, neptunoXYZ[2], 0.0, 0.0, 0.0, 0, 1, 0);
-            }
-            printf ( "NEPTUNO(x,y,z) = (%F, %F, %F)\n", neptunoXYZ[0], neptunoXYZ[1], neptunoXYZ[2]);
-            break;
-        case 15:
-            /*printf("Nemesis\n");
-            walkFromTO ( der, z, posicionXnemesis, posicionZnemesis );
-            gluLookAt(der, 0.0, z, 0.0, 0.0, 0.0, 0, 1, 0);
-            hora += 50.0;
-            printf ( "NEMESIS(x,z) = (%F, %F)\n", posicionXnemesis, posicionXnemesis);
-            */
-            printf("Pluton\n");
-            if ( walkFromTO ( der, z, pluton_[0], pluton_[2] ) ) {
-                gluLookAt(der, 0.0, z, 0.0, 0.0, 0.0, 0, 1, 0);
-            } else {
-                hora += 50.0;
-                angulo = (((float) dia / 365)*360)/(140*(speed));
-                getOrbitStartPoint(angulo, plutonXYZ, pluton_[0],pluton_[1],pluton_[2]);
-                gluLookAt(plutonXYZ[0], 0.0, plutonXYZ[2], 0.0, 0.0, 0.0, 0, 1, 0);
-            }
-            printf ( "Pluton(x,y,z) = (%F, %F, %F)\n", plutonXYZ[0], plutonXYZ[1], plutonXYZ[2]);
-            break;
-        case 16:
-            printf("Acerca de\n");
-            break;
-        case 17:
-            printf("Fullscreen\n");
-            glutFullScreen();
-            break;
-        case 18:
+        case 5:
             printf("Salir\n");
             exit(1);
             break;
@@ -944,9 +816,7 @@ void loadSkyBox ( ) {
 void displayevent(void) {
     // limpia la escena (ventana)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
     loadSkyBox();
-    
      // inicializa la Matriz de transformación de coordenadas (Matriz del Modelo)
     glLoadIdentity();
     // verfica superficies visibles
@@ -1022,26 +892,15 @@ void menu(int num){
 void createMenu(void){
     //submenú del sistema solar
     solarSytem_submenu_id = glutCreateMenu(menu);
-    glutAddMenuEntry("Iniciar Movimiento", 3);
-    glutAddMenuEntry("Detener Movimiento", 4);
+    glutAddMenuEntry("Catastrofe", 1);
+    glutAddMenuEntry("Iniciar Movimiento", 2);
+    glutAddMenuEntry("Detener Movimiento", 3);
     planets_submenu_id = glutCreateMenu(menu);
-    glutAddMenuEntry("Sol", 6);
-    //glutAddMenuEntry("Mercurio", 7);
-    //glutAddMenuEntry("Venus", 8);
-    //glutAddMenuEntry("Tierra", 9);
-    //glutAddMenuEntry("Marte", 10);
-    //glutAddMenuEntry("Jupiter", 11);
-    //glutAddMenuEntry("Saturno", 12);
-    //glutAddMenuEntry("Urano", 13);
-    //glutAddMenuEntry("Neptuno", 14);
-    //glutAddMenuEntry("Pluton", 15);
+    glutAddMenuEntry("Sol", 4);
     menu_id = glutCreateMenu(menu);
-    //glutAddMenuEntry("Iniciar Movimiento", 1);
     glutAddSubMenu("Sistema Solar", solarSytem_submenu_id);
     glutAddSubMenu("Ir a", planets_submenu_id);
-    //glutAddMenuEntry("Acerca de", 16);
-    //glutAddMenuEntry("FullScreen", 17);
-    glutAddMenuEntry("Salir", 18);
+    glutAddMenuEntry("Salir", 5);
     glutAttachMenu(GLUT_RIGHT_BUTTON);
 }
 //Función para trabajar con teclas especiales (F1,F2,...)
@@ -1080,11 +939,6 @@ void reshapeevent(GLsizei width, GLsizei height) {
     glLoadIdentity();
 }
 
-/*************
- *           *
- *  M A I N  * 
- *           *
- *************/
 int main(int argc, char** argv) {
     
     int aux;	

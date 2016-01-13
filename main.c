@@ -336,7 +336,12 @@ void render_esfera(float m_Radius, int sl, int st , int id_textura) {
 
 //Función creadora de estrellas (NO USADA)
 void muerte (float x, float y , float z){
+<<<<<<< HEAD
     float i = 1.5;
+=======
+    int basura = 0;
+    float contador = -3.9;
+>>>>>>> b3950605d1aa6d19b0ff1e38561b2ef0bdfa29f5
     glPushMatrix ();
     GLfloat light_direction[] = { 1.0, 1.0, 0.0 };
     GLfloat light_position[] = { 1.0, 0.0, 1.0, 1.0 };
@@ -348,9 +353,21 @@ void muerte (float x, float y , float z){
     glLightfv (GL_LIGHT0, GL_POSITION, light_position);
     glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, mat_emision);
     glMaterialfv (GL_FRONT, GL_DIFFUSE, mat_diffuse);
+<<<<<<< HEAD
     anos = anos/365;
     glScalef( anos, anos,anos );
     glTranslatef (x, y, z);
+=======
+    glTranslatef (x, y, z);
+    while(basura==0){
+        glScalef(contador,contador,contador);
+        render_esfera(2, 100, 32 , 0);
+        glPopMatrix ();
+        contador+=0.5;
+        if(contador >= -1)
+            basura+=1;
+    }
+>>>>>>> b3950605d1aa6d19b0ff1e38561b2ef0bdfa29f5
     render_esfera(2, 100, 32 , 0);
     glPopMatrix ();
 }
@@ -714,7 +731,11 @@ void menuChoise ( ){
             hora += 50.0;
             aux2 = 1;
             gluLookAt(der, arr, z, 0.0, 0.0, 0.0, 0, 1, 0);
+<<<<<<< HEAD
             muerte(der, arr, z);
+=======
+            //muerte();
+>>>>>>> b3950605d1aa6d19b0ff1e38561b2ef0bdfa29f5
             break;
         case 2:
             printf("Iniciar Movimiento \n" );

@@ -334,10 +334,10 @@ void render_esfera(float m_Radius, int sl, int st , int id_textura) {
     glDisable(GL_TEXTURE_2D);
 }
 
-//Función creadora de estrellas (NO USADA)
+//Función de la muerte del sol
 void muerte (float x, float y , float z){
     int basura = 0;
-    float contador = -3.9;
+    double contador = 1.02;
     glPushMatrix ();
     GLfloat light_direction[] = { 1.0, 1.0, 0.0 };
     GLfloat light_position[] = { 1.0, 0.0, 1.0, 1.0 };
@@ -350,15 +350,21 @@ void muerte (float x, float y , float z){
     glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, mat_emision);
     glMaterialfv (GL_FRONT, GL_DIFFUSE, mat_diffuse);
     glTranslatef (x, y, z);
+    //glScalef(contador,contador,contador);
+    /*glScaled(contador,contador,contador);
     while(basura==0){
-        glScalef(contador,contador,contador);
-        render_esfera(2, 100, 32 , 0);
+        //glTranslatef (contador2, contador2, contador2);
+        glScalef(0.05f,0.05f,0.05f);
+        render_esfera(4, 100, 32 , -1);
         glPopMatrix ();
-        contador+=0.5;
-        if(contador >= -1)
+        contador+=0.0005;
+        contador2+0.0005;
+        printf("Contador = %f  \n",contador);
+        if(contador >= 3){
             basura+=1;
-    }
-    render_esfera(2, 100, 32 , 0);
+        }
+    }*/
+    render_esfera(2, 100, 32 , 0.5);
     glPopMatrix ();
 }
 //Funciones creadoras de los planetas
@@ -720,7 +726,7 @@ void menuChoise ( ){
             hora += 50.0;
             aux2 = 1;
             gluLookAt(der, arr, z, 0.0, 0.0, 0.0, 0, 1, 0);
-            //muerte();
+            muerte(0.0,0.0,z);
             break;
         case 2:
             printf("Iniciar Movimiento \n" );

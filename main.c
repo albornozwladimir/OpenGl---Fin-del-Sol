@@ -353,14 +353,14 @@ void muerte (float x, float y , float z){
     printf("%f", anos);
     if(anos < 3.000){
         glScalef( anos, anos,anos );
-        render_esfera(2, 100, 32 , 0);
+        render_esfera(2, 100, 32 , 4);
         glTranslatef (x, y, z);
         
     }
     else{ 
         if(limite > -0.05){
         glScalef( limite, limite, limite );
-        render_esfera(2, 100, 32 , 0);
+        render_esfera(2, 100, 32 , 4);
         glTranslatef (x, y, z);
         limite-=0.001;
         }
@@ -383,10 +383,10 @@ void sol(float x, float y, float z){
     glLightfv (GL_LIGHT0, GL_POSITION, light_position);
     glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, mat_emision);
     glMaterialfv (GL_FRONT, GL_DIFFUSE, mat_diffuse);
-    if(limite < 3  && limite > -0.1){
+    if(limite < 3  && limite > -0.19){
         glScalef( limite, limite, limite );
         glTranslatef (x, y, z);
-        render_esfera(2, 100, 32 , 10);
+        render_esfera(2, 100, 32 , 4);
         glPopMatrix();
     }
     else{

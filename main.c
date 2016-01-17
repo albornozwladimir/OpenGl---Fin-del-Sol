@@ -52,6 +52,7 @@ struct vertice{
 
 //Variables
 GLfloat anos;
+GLfloat limite=3.000;
 GLint dia;
 GLint hora;
 GLint min;
@@ -336,7 +337,7 @@ void render_esfera(float m_Radius, int sl, int st , int id_textura) {
 
 //Función creadora de estrellas (NO USADA)
 void muerte (float x, float y , float z){
-    float i = 1.5;
+    //float i = 1.5;
     glPushMatrix ();
     GLfloat light_direction[] = { 1.0, 1.0, 0.0 };
     GLfloat light_position[] = { 1.0, 0.0, 1.0, 1.0 };
@@ -349,10 +350,24 @@ void muerte (float x, float y , float z){
     glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, mat_emision);
     glMaterialfv (GL_FRONT, GL_DIFFUSE, mat_diffuse);
     anos = anos/365;
-    glScalef( anos, anos,anos );
-    glTranslatef (x, y, z);
-    render_esfera(2, 100, 32 , 0);
+    printf("%f", anos);
+    if(anos < 3.000){
+        glScalef( anos, anos,anos );
+        render_esfera(2, 100, 32 , 0);
+        glTranslatef (x, y, z);
+        
+    }
+    else{ 
+        if(limite > -0.05){
+        glScalef( limite, limite, limite );
+        render_esfera(2, 100, 32 , 0);
+        glTranslatef (x, y, z);
+        limite-=0.001;
+        }
+        
+    }
     glPopMatrix ();
+    
 }
 //Funciones creadoras de los planetas
 void sol(float x, float y, float z){
@@ -368,9 +383,22 @@ void sol(float x, float y, float z){
     glLightfv (GL_LIGHT0, GL_POSITION, light_position);
     glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, mat_emision);
     glMaterialfv (GL_FRONT, GL_DIFFUSE, mat_diffuse);
-    glTranslatef (x, y, z);
-    render_esfera(2, 100, 32 , 0);
-    glPopMatrix ();
+    if(limite < 3  && limite > -0.1){
+        glScalef( limite, limite, limite );
+        glTranslatef (x, y, z);
+        render_esfera(2, 100, 32 , 10);
+        glPopMatrix();
+    }
+    else{
+        glTranslatef (x, y, z);
+        render_esfera(2, 100, 32 , 0);
+        glPopMatrix ();
+    }
+    //else{
+     //   glScalef( limite, limite, limite );
+      //  glTranslatef (x, y, z);
+       // render_esfera(1, 100, 32 , 0);    
+    //}
 }
 
 void mercurio(float x,float y,float z_){
@@ -385,9 +413,16 @@ void mercurio(float x,float y,float z_){
         glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, mat_emision_explosion);
     glMaterialfv (GL_FRONT, GL_DIFFUSE, mat_diffuse);
     anos = ((float) dia / 365)*360;
-    glRotatef( anos/0.34, 0,1,0 );
-    glTranslatef (x, y, z_); 
-    render_esfera(0.03, 100, 32 , 3);    
+    if(limite<=2.98){
+        glRotatef( anos/0.34, 0,0,0 );
+        glTranslatef (x, y, z_); 
+        render_esfera(0.0, 0, 0 , 0);
+    }
+    else{    
+        glRotatef( anos/0.34, 0,1,0 );
+        glTranslatef (x, y, z_); 
+        render_esfera(0.03, 100, 32 , 3);
+    }
     //glutSolidSphere (0.03, 100, 100);
     glPopMatrix ();
     
@@ -421,9 +456,16 @@ void venus(float x, float y, float z_){
     glMaterialfv (GL_FRONT, GL_AMBIENT, mat_ambient_venus);
     glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 360.0);*/
     anos = ((float) dia / 365)*360;
-    glRotatef( anos/0.6, 0,1,0 );
-    glTranslatef (x, y, z_); 
-    render_esfera(0.08, 100, 32 , 2);    
+    if(limite<=2.80){
+        glRotatef( anos/0.6, 0,0,0 );
+        glTranslatef (x, y, z_); 
+        render_esfera(0.0, 0, 0 , 0);
+    }
+    else{
+        glRotatef( anos/0.6, 0,1,0 );
+        glTranslatef (x, y, z_); 
+        render_esfera(0.08, 100, 32 , 2);
+    }
     //glutSolidSphere (0.08, 100, 100);
     glPopMatrix ();
     
@@ -454,10 +496,17 @@ void tierra(float x, float y, float z_){
         glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, mat_emision_explosion);
     glMaterialfv (GL_FRONT, GL_DIFFUSE, mat_diffuse);
     anos = ((float) dia / 686)*360;
-    glRotatef( anos, 0,1,0 );
     // glColor3f(0.0f, 1.0f, 0.0f);
-    glTranslatef (x, y, z_); 
-    render_esfera(0.08, 100, 32 , 1);    
+    if(limite<=2.80){
+        glRotatef( anos, 0,1,0 );
+        glTranslatef (x, y, z_); 
+        render_esfera(0.0, 0, 0 , 0);
+    }
+    else{
+        glRotatef( anos, 0,1,0 );
+        glTranslatef (x, y, z_); 
+        render_esfera(0.08, 100, 32 , 1);
+    }
     //glutSolidSphere (0.08, 100, 100);
     glPopMatrix ();
     

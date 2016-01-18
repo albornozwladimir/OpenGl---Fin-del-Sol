@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  4 JAN 2016 05:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  18 JAN 2016 04:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -717,7 +717,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 277--278
  []
 
 
-Overfull \hbox (1.38869pt too wide) detected at line 301
+Overfull \hbox (15.7335pt too wide) detected at line 301
 \OML/cmm/m/it/12 T \OT1/cmr/m/n/12 = [] \OMS/cmsy/m/n/12 ^^B [] \OT1/cmr/m/n/12
  = []
  []
@@ -733,73 +733,84 @@ Underfull \hbox (badness 10000) in paragraph at lines 301--303
  []
 
 
-Underfull \hbox (badness 2503) in paragraph at lines 304--305
+Underfull \hbox (badness 10000) in paragraph at lines 305--306
+
+ []
+
+
+Overfull \hbox (31.81995pt too wide) detected at line 328
+\OML/cmm/m/it/12 T \OT1/cmr/m/n/12 = [] \OMS/cmsy/m/n/12 ^^B [] \OT1/cmr/m/n/12
+ = []
+ []
+
+
+Underfull \hbox (badness 2503) in paragraph at lines 331--332
 []\OT1/ppl/m/n/12 Esta f[]ormu-la se uti-li-za pa-ra de-ter-mi-nar
  []
 
 
-Underfull \hbox (badness 5147) in paragraph at lines 304--305
+Underfull \hbox (badness 5147) in paragraph at lines 331--332
 \OT1/ppl/m/n/12 2D, aun-que el sis-te-ma est[]a re-pre-sen-ta-do
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
+Underfull \hbox (badness 10000) in paragraph at lines 331--332
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--309
+Underfull \hbox (badness 10000) in paragraph at lines 334--336
 
  []
 
-LaTeX Info: Redefining \. on input line 321.
-LaTeX Info: Redefining \% on input line 321.
+LaTeX Info: Redefining \. on input line 341.
+LaTeX Info: Redefining \% on input line 341.
 [3]
-Underfull \hbox (badness 5726) in paragraph at lines 327--335
+Underfull \hbox (badness 5726) in paragraph at lines 354--362
 \OT1/ppl/m/n/12 pa-ra la crea-ci[]on de apli-ca-cio-nes gra-fi-cas
  []
 
 
-Underfull \hbox (badness 4699) in paragraph at lines 327--335
+Underfull \hbox (badness 4699) in paragraph at lines 354--362
 \OT1/ppl/m/n/12 a una gran va-rie-dad de pla-ta-for-mas de
  []
 
 
-Underfull \hbox (badness 2401) in paragraph at lines 327--335
+Underfull \hbox (badness 2401) in paragraph at lines 354--362
 \OT1/ppl/m/n/12 compu-taci[]on. A su vez, OpenGL fo-men-ta
  []
 
 
-Underfull \hbox (badness 4634) in paragraph at lines 327--335
+Underfull \hbox (badness 4634) in paragraph at lines 354--362
 \OT1/ppl/m/n/12 (IDE) lla-ma-do Net-Beans, el cual per-mi-te
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--335
+Underfull \hbox (badness 10000) in paragraph at lines 354--362
 \OT1/ppl/m/n/12 de-tec-tar r[]api-da-men-te erro-res de sin-ta-xis.
  []
 
 
-Underfull \hbox (badness 4582) in paragraph at lines 327--335
+Underfull \hbox (badness 4582) in paragraph at lines 354--362
 \OT1/ppl/m/n/12 Per-mi-te tam-bi[]en ini-ciar en mo-do de-bug,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--335
+Underfull \hbox (badness 10000) in paragraph at lines 354--362
 
  []
 
 
-Underfull \hbox (badness 2020) in paragraph at lines 327--335
+Underfull \hbox (badness 2020) in paragraph at lines 354--362
 \OT1/ppl/m/n/12 las cua-les re-pre-sen-tan ca-da ob-je-to que se
  []
 
 
-Underfull \hbox (badness 3209) in paragraph at lines 327--335
+Underfull \hbox (badness 3209) in paragraph at lines 354--362
 \OT1/ppl/m/n/12 mues-tra en la es-ce-na. A con-ti-nua-ci[]on se
  []
 
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 335.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 362.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
@@ -807,135 +818,127 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <9> not available
 (Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 3.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 337--342
+Underfull \hbox (badness 10000) in paragraph at lines 364--369
 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x; y; z\OT1/cmr/m/n/12 )$\OT1/ppl/m/n/12 ) pa
 -ra pos-te-rior-men-te rea-li-zar la
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 337--342
+Underfull \hbox (badness 10000) in paragraph at lines 364--369
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 337--342
+Underfull \hbox (badness 10000) in paragraph at lines 364--369
 \OT1/ppl/m/n/12 est[]an im-ple-men-ta-das, a con-ti-nua-ci[]on se
  []
 
-(./rotacion.c)
-Underfull \hbox (badness 1394) in paragraph at lines 348--351
+(./rotacion.c
+LaTeX Info: Redefining \. on input line 9.
+LaTeX Info: Redefining \% on input line 9.
+ [4])
+Underfull \hbox (badness 1394) in paragraph at lines 375--378
 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x; y; z\OT1/cmr/m/n/12 )$ \OT1/ppl/m/n/12 es 
 so-bre el eje que se apli-car[]a la
  []
 
 
-Underfull \hbox (badness 3302) in paragraph at lines 348--351
+Underfull \hbox (badness 3302) in paragraph at lines 375--378
 \OT1/ppl/m/n/12 Resulta im-por-tan-te des-ta-car que, tan-to el
  []
 
 
-Underfull \hbox (badness 1796) in paragraph at lines 348--351
+Underfull \hbox (badness 1796) in paragraph at lines 375--378
 []\OT1/ppl/m/n/12 angu-lo de ro-ta-ci[]on co-mo las coor-de-na-das,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 348--351
+Underfull \hbox (badness 10000) in paragraph at lines 375--378
 
  []
 
 
-Overfull \hbox (36.17957pt too wide) detected at line 361
+Overfull \hbox (36.17957pt too wide) detected at line 388
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
+Underfull \hbox (badness 10000) in paragraph at lines 388--389
 
  []
 
-LaTeX Info: Redefining \. on input line 363.
-LaTeX Info: Redefining \% on input line 363.
-[4] (./traslacion.c) (./vista.c)
-Underfull \hbox (badness 3713) in paragraph at lines 380--384
+(./traslacion.c) (./escalamiento.c)
+Underfull \hbox (badness 4467) in paragraph at lines 404--406
+\OT1/ppl/m/n/12 des-de d[]onde se ob-ser-var[]a la es-ce-na, en
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 404--406
+
+ []
+
+(./vista.c)
+Underfull \hbox (badness 3713) in paragraph at lines 415--419
 []\OT1/ppl/b/n/12 eyeX, eyeY, eyeZ\OT1/ppl/m/n/12 : Es la coor-de-na-da
  []
 
-<viewport.png, id=37, 494.84875pt x 333.245pt>
+<viewport.png, id=38, 494.84875pt x 333.245pt>
 File: viewport.png Graphic file (type png)
  <use viewport.png>
-Package pdftex.def Info: viewport.png used on input line 392.
+Package pdftex.def Info: viewport.png used on input line 427.
 (pdftex.def)             Requested size: 206.39285pt x 128.99889pt.
- (./orbita.c)
-Underfull \hbox (badness 2478) in paragraph at lines 405--410
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 436.
+LaTeX Info: Redefining \% on input line 436.
+[5] (./orbita.c)
+Underfull \hbox (badness 2478) in paragraph at lines 440--445
 \OT1/ppl/m/n/12 Se uti-li-zar[]a la t[]ecni-ca ba-sa-da en tex-tu-ras
  []
 
 
-Underfull \hbox (badness 2351) in paragraph at lines 405--410
+Underfull \hbox (badness 2351) in paragraph at lines 440--445
 \OT1/ppl/m/n/12 tex-tu-ra, se crea de for-ma que pa-ra ca-da
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 405--410
+Underfull \hbox (badness 10000) in paragraph at lines 440--445
 
  []
 
-LaTeX Info: Redefining \. on input line 410.
-LaTeX Info: Redefining \% on input line 410.
-[5 <./viewport.png>] <Skybox1.png, id=43, 513.92pt x 385.44pt>
+<Skybox1.png, id=43, 513.92pt x 385.44pt>
 File: Skybox1.png Graphic file (type png)
-
-<use Skybox1.png>
-Package pdftex.def Info: Skybox1.png used on input line 412.
+ <use Skybox1.png>
+Package pdftex.def Info: Skybox1.png used on input line 447.
 (pdftex.def)             Requested size: 206.39558pt x 128.99527pt.
- <Skybox2.png, id=44, 256.96pt x 256.96pt>
+
+<Skybox2.png, id=44, 256.96pt x 256.96pt>
 File: Skybox2.png Graphic file (type png)
  <use Skybox2.png>
-Package pdftex.def Info: Skybox2.png used on input line 420.
+Package pdftex.def Info: Skybox2.png used on input line 455.
 (pdftex.def)             Requested size: 206.39949pt x 129.00116pt.
 
+Underfull \vbox (badness 2922) has occurred while \output is active []
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \vbox (badness 2626) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 449.
-LaTeX Info: Redefining \% on input line 449.
- [6 <./Skybox1.png> <./Skybox2.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 466--469
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 466--469
-\OT1/ppl/m/n/12 La fun-ci[]on se-cun-da-ria que se quie-re
- []
-
-
-Underfull \hbox (badness 2065) in paragraph at lines 466--469
-\OT1/ppl/m/n/12 im-ple-men-tar es te-ner la vis-ta des-de ca-da
- []
-
-<1.png, id=49, 825.83531pt x 536.75531pt>
+LaTeX Info: Redefining \. on input line 469.
+LaTeX Info: Redefining \% on input line 469.
+ [6 <./viewport.png> <./Skybox1.png> <./Skybox2.png (PNG copy)>]
+<1.png, id=50, 825.83531pt x 536.75531pt>
 File: 1.png Graphic file (type png)
  <use 1.png>
-Package pdftex.def Info: 1.png used on input line 476.
+Package pdftex.def Info: 1.png used on input line 508.
 (pdftex.def)             Requested size: 206.39531pt x 128.9959pt.
 
-<2.png, id=50, 883.04906pt x 529.22719pt>
+<2.png, id=51, 883.04906pt x 529.22719pt>
 File: 2.png Graphic file (type png)
  <use 2.png>
-Package pdftex.def Info: 2.png used on input line 484.
+Package pdftex.def Info: 2.png used on input line 516.
 (pdftex.def)             Requested size: 206.38472pt x 128.99557pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-(./Informe.bbl
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
- [7 <./1.png>]
+LaTeX Info: Redefining \. on input line 522.
+LaTeX Info: Redefining \% on input line 522.
+ [7] (./Informe.bbl
 Underfull \hbox (badness 5008) in paragraph at lines 48--50
 []\OT1/ppl/m/n/9 E. Sie-gel. (Enero 2, 2014.) The far fu-tu-re of our
  []
@@ -947,11 +950,9 @@ bang /
  []
 
 )
-LaTeX Info: Redefining \. on input line 498.
-LaTeX Info: Redefining \% on input line 498.
- [8
-
- <./2.png>] (./Informe.aux
+LaTeX Info: Redefining \. on input line 530.
+LaTeX Info: Redefining \% on input line 530.
+ [8 <./1.png> <./2.png>] (./Informe.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -961,13 +962,13 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 7030 strings out of 493304
- 101340 string characters out of 6139872
+ 7036 strings out of 493304
+ 101421 string characters out of 6139872
  211689 words of memory out of 5000000
- 10338 multiletter control sequences out of 15000+600000
- 53687 words of font info for 119 fonts, out of 8000000 for 9000
+ 10341 multiletter control sequences out of 15000+600000
+ 53668 words of font info for 119 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
- 38i,8n,49p,583b,1522s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,8n,49p,583b,1795s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
@@ -987,7 +988,7 @@ uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb>
 /texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/palatino/uplri8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/zapfding/uzdr.pfb>
-Output written on Informe.pdf (8 pages, 1081976 bytes).
+Output written on Informe.pdf (8 pages, 1083876 bytes).
 PDF statistics:
  126 PDF objects out of 1000 (max. 8388607)
  82 compressed objects within 1 object stream

@@ -134,7 +134,7 @@ En el siguiente informe se detallan los aspectos preliminares para el proyecto d
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Sistema solar, OpenGL, rotación, traslación, objetivos, herramientas a utilizar, plan.
+Sistema solar, OpenGL, rotación, traslación, escalamiento,objetivos, herramientas a utilizar, plan.
 \end{IEEEkeywords}}
 
 
@@ -167,24 +167,24 @@ Sistema solar, OpenGL, rotación, traslación, objetivos, herramientas a utiliza
 
 
 \section{Introducción}
-\IEEEPARstart{L}a idea principal del proyecto es generar una simulación de lo que pasaría si el Sol absorbiera a los planetas del sistema solar, fundamentalmente si se rompiera la resistencia existente, debido a que el sol se transformará en una gigante roja esto sucederá dentro de 10 mil millones de años aproximadamente \cite{Baker2015}. \\
+\IEEEPARstart{L}a idea principal del proyecto es generar una simulación de la muerte del sol y la absorción de algunos planetas producto de esto, fundamentalmente si se rompiera la resistencia existente, debido a que el sol se transformará en una gigante roja dentro de 10 mil millones de años aproximadamente \cite{Baker2015}. \\
 Esta simulación tiene un carácter científico, ya que está demostrado que cuando se concrete el fin del sol terminaría absorbiendo a los planetas que se encuentren cercanos a el, se toman como base las diferentes visiones e información que se tiene del espacio-tiempo.\\
 Debe considerarse que lo que se está presentando toma como base parte de un proyecto ya implementado \cite{anterior}, cabe destacar que esto resulta mas complejo debido a que la base está realizado con aspectos, métodos, módulos y herramientas diferentes, teniendo que considerar un tiempo extra para injertar de manera perfecta esto a el proyecto que se está realizando.
 \section{Objetivos}
 \subsection{Objetivo General}
-Implementar gráficamente la simulación catastŕofica del sistema solar y que se aprecie lo mas apegado a la realidad posible.\\
+Implementar gráficamente la simulación catastrófica del sistema solar y que se aprecie lo mas cercano a la realidad posible.\\
 \subsection{Objetivos Específicos}
 \begin{itemize}
 \item Conocer y relacionar términos de la computación gráfica para el desarrollo del proyecto \cite{foley}.
 \item Entender y aprender a utilizar OpenGL para la implementación y representación de elementos de la computación gráfica.
 \item Determinación de herramientas útiles para el desarrollo.
-\item Descubir librerías que puedan ayudar tanto en la codificación como en la implementación.
+\item Descubrir librerías que puedan ayudar tanto en la codificación como en la implementación.
 \item Lograr dominar el lenguaje y las herramientas a utilizar.
 \end{itemize}
 
 \section{Descripción de la problemática}
 \subsection{Motivación}
-Resulta muy interesante la oportunidad de generar una simulación gráfica el sistema solar \cite{astronomia} conocido (figura \ref{planetas}), mas detalladamente del fin de el sol como se conoce, debido a la importancia que este sistema tiene para toda la humanidad; la mayor motivación para el desarrollo es en efecto poder implementar el proyecto, además con ello se pretende aprender y a la vez poner en práctica conceptos de la computación gráfica como la rotación, traslación y el modelado en 3 dimensiones.\\
+Resulta muy interesante la oportunidad de generar una simulación gráfica el sistema solar \cite{astronomia} conocido (figura \ref{planetas}), mas detalladamente del fin de el sol como se conoce, debido a la importancia que este sistema tiene para toda la humanidad; la mayor motivación para el desarrollo es en efecto poder implementar el proyecto, además con ello se pretende aprender y a la vez poner en práctica conceptos de la computación gráfica como la rotación, traslación, escalamiento y el modelado en 3 dimensiones.\\
 \begin{figure}[h!]
   \includegraphics[width=0.45\textwidth]{planetas.jpg}
   \caption{Sistema solar conocido}
@@ -192,8 +192,8 @@ Resulta muy interesante la oportunidad de generar una simulación gráfica el si
   \label{planetas}
 \end{figure}
 \subsection{Definición de la problemática}
-La mayoría de las implementaciones gráficas conocidas muestran simulaciones de la realidad de los planetas y del sistema solar, sus trayectorias, sus lunas o las diferencias entre las velocidades de rotación de cada uno; pero ¿que sucedería si las órbitas de los planetas aumentara y sumados al aumento de la masa del sol, este atrajera a todos los planetas existentes en el sistema conocido?, el fin de el sol y de los planetas como los conocemos es lo que se desea implementar.\\
-Skybox es una tecnica que permite que una escena se vea más grande y más impresionante, envolviendo al usuario con una textura que es posible apreciar en una cámara de 360$^{\circ}$\cite{skybox2}.
+La mayoría de las implementaciones gráficas conocidas muestran simulaciones de la realidad de los planetas y del sistema solar, sus trayectorias y las diferencias entre las velocidades de rotación de cada uno; pero ¿que sucedería si las órbitas de los planetas aumentara y sumados al aumento de la masa del sol, este atrajera a todos los planetas existentes en el sistema conocido?, el fin de el sol y de los planetas como los conocemos es lo que se desea implementar.\\
+Skybox es una técnica que permite que una escena se vea más grande y más impresionante, envolviendo al usuario con una textura que es posible apreciar en una cámara de 360$^{\circ}$\cite{skybox2}.
 \begin{figure}[h!]
   \includegraphics[width=0.48\textwidth]{sol.jpg}
   \caption{El Sol convertido en gigante roja llegando casi a la órbita de Venus, la Tierra tiene un futuro incierto}
@@ -206,7 +206,7 @@ Para ello habría que:
 \begin{itemize}
  \item Modificar algunas funciones relacionadas con la traslación de estas diferentes figuras (diferentes planetas)
  \item Editar y acondicionar las formulas de elipse.
- \item Aumentar el radio del sol.
+ \item Aumentar el radio del sol(\textit{escalamiento}).
 \end{itemize}   %funcion %imagen de traslacion de planetas
 \section{Modelamiento}
 \subsection{Función de la elipse}
@@ -290,16 +290,43 @@ La matriz que describe la traslación de los objetos en la escena es la siguient
 				v_{x} \\
 				v_{y} \\
 				v_{z} \\
-				v_{w} 
+				1 
 			\end{array}
 		\right] = 
 		\left(
-			\begin{array}{ccc}
-				v'_{x} , & v'_{y} , & v'_{z}
+			\begin{array}{cccc}
+				v'_{x} , & v'_{y} , & v'_{z} & 1
 			\end{array}
 		\right)
 \]
 La traslación permite saber el radio que tendrá la órbita del planeta respecto al sol. Es en torno a esta transformación que se aplica la rotación, por lo tanto para cada frame de la escena se aplica un pequeño aumento en la rotación respectiva.\\
+\subsubsection{Escalamiento}
+\label{escalamiento}
+La matriz que describe el escalamiento de los objetos en la escena es la siguiente:\\
+\[ 
+	T = \left[ 
+			\begin{array}{cccc}
+				S_{x} & 0 & 0 & 0 \\
+				0 & S_{y} & 0 & 0 \\
+				0 & 0 & S_{z} & 0 \\
+				0 & 0 & 0 & 1 
+			\end{array}
+		\right] \times 
+		\left[ 
+			\begin{array}{c}
+				v_{x} \\
+				v_{y} \\
+				v_{z} \\
+				1 
+			\end{array}
+		\right] = 
+		\left(
+			\begin{array}{cccc}
+				v'_{x} , & v'_{y} , & v'_{z}, & 1
+			\end{array}
+		\right)
+\]
+El escalamiento permite simular el fin del sol, ya que según la ciencia\cite{Baker2015} este empezaría a aumentar su radio a medida que pasan los años absorbiendo los primeros 3 planetas \textbf{Mercurio}, \textbf{Venus} y probablemente la \textbf{Tierra}. Ya alcanzando el limite de tamaño, su atmósfera empezará a contraerse hasta transformarse en una enana blanca. De esta manera el proceso de escalamiento nos permitirá simular el comportamiento del sol en esta teoría científica.
 \subsection{Distancia entre dos puntos}
 Esta fórmula se utiliza para determinar la distancia entre 2 puntos en un plano en 2D, aunque el sistema está representado en 3 dimensiones. Los planetas se mueven respecto al eje y y la posición de los mismos está determinada sólo por sus coordenadas en el eje x y en el eje z:\\
 \[ 
@@ -310,7 +337,7 @@ Esta fórmula se utiliza para determinar la distancia entre 2 puntos en un plano
 	z_{new} = \frac{\sqrt{Z_{final}^{2}+Z_{inicial}^{2}}}{100}
 \]
 \newline
-la distancia total entre el punto final y el inicial es dividida por un número random con ello se genera la traslación de un objeto desde un punto hacía otro; lo que se traslada es la viewport
+la distancia total entre el punto final y el inicial es dividida por un número aleatorio con ello se genera la traslación de un objeto desde un punto hacía otro; lo que se traslada es la viewport.
 \section{Diseño del problema}
 A continuación, se especifica un diseño preliminar mas un diseño detallado del problema y de la solución
 \subsection{Diseño preliminar}
@@ -367,11 +394,19 @@ Para trasladar en openGl se utiliza la función \textbf{glTranslate}, la cuál e
 \lstinputlisting{traslacion.c} 
 %
 $(x,y,z)$ es hacía dónde se quiere mover el objeto. Esta función utiliza la misma matriz descrita en la sección \ref{rotacion}
+\subsubsection{Escalamiento}
+Para escalar en openGl se utiliza la función \textbf{glScale}, la cuál está determinada por un vector que se permite escalar desde el origen hasta la coordenada $(x,y,z)$.\\La función tiene la siguiente forma:
+%
+\lstinputlisting{escalamiento.c} 
+%
+$(x,y,z)$ son los valores en los que se escalará el objeto. Esta función utiliza la misma matriz descrita en la sección \ref{rotacion}
 \subsubsection{Vista}
-Para fijar la vista en un punto determinado desde dónde se observará la escena, en openGL se utiliza la función \textbf{gluLookAt}. \\La función tiene la siguiente forma:
+Para fijar la vista en un punto determinado desde dónde se observará la escena, en openGL se utiliza la función \textbf{gluLookAt}. \\La función tiene la siguiente forma:\\
 %
 \lstinputlisting{vista.c}
 %
+\bigskip
+\bigskip
 Donde:
 %
 \begin{itemize}
@@ -431,11 +466,12 @@ Se utiliza el formato de imagen (TGA), ya que es la forma más óptima de ahorra
 Como prototipo, se tienen las siguientes opciones:
 
 \begin{enumerate}
+	\item \textbf{Catástrofe}: Inicia el fin del Sol
 	\item \textbf{Iniciar movimiento}: Inicia la animación de los planetas orbitando.
 	\item \textbf{Detener movimiento}: Detiene la animación de los planetas orbitando.
 	\item \textbf{Salir}: Salir del sistema solar.
 \end{enumerate}
-Cabe mencionar que como es un prototipo, aun no se han agregado la totalidad de las funcionalidades mencionadas en los requerimientos, se incorporaron los que están completamente ejecutados y sin fallas, para la entrega final se mostrara el software con la totalidad de los requerimientos aplicados.
+Cabe mencionar que se ha completado el 100\% de los requerimientos dados al inicio del problema, se espera que el resultado sea apreciado en su totalidad y que este sea de ayuda para algún proyecto a futuro.
 \section{Metodología y herramientas a utilizar}
 \subsection{Metodología}
 La metodología a utilizar es el análisis y diseño estructurado ya que con esta metodología se tiene un orden lógico en los pasos a seguir para el desarrollo correcto del proyecto.
@@ -456,16 +492,12 @@ Preliminarmente se establecen las siguientes herramientas para la programación,
 \subsection{Validación de resultados}
 Como se especificó en  la presentación preliminar de la idea, para realizar esta aplicación se toma como base un proyecto anterior del ramo de computación gráfica, el cual se llama "Representación del sistema solar en OpenGL". De este código se toman las funciones principales para generar la representación.\\
 En el código se representa Plutón que no se encontraba representado, además se comienza generando todos los planetas alineados tras el Sol para mantener un orden mas lógico en un principio.\\
+Lo principal novedad que se trabajó fue la muerte del sol.\\
 Se toma como base científica las distancias normalizadas de los planetas y sus velocidades de rotación.
 \subsection{Rendimiento preliminar}
-En esta etapa de prototipo del proyecto, el equipo de trabajo se enfoca en implementar las funciones más importantes del proyecto base además de aprender sobre la utilización de la herramienta OpenGL. A la base tomada para el desarrollo se le eliminan una serie de funciones que en realidad no serán necesarias por lo tanto esto entregara un código mas compacto y fácil de comprender.\\
+En esta etapa final del proyecto, el equipo de trabajo se enfoca en implementar las funciones más importantes del proyecto base además de aprender sobre la utilización de la herramienta OpenGL. A la base tomada para el desarrollo se le eliminan una serie de funciones que en realidad no serán necesarias por lo tanto esto entregara un código mas compacto y fácil de comprender.\\
 Preliminarmente no se identifican problemas relacionados a la presentación en pantalla de la aplicación al ser ejecutada, la velocidad de movimiento (rotación) es más que suficiente para identificar los movimientos de los planetas.\\
 El rendimiento gráfico de la aplicación es prudente(por la sencillez), rápido(por como se aprecia) y optimo(por como se realiza).
-\subsection{Problemáticas y funciones faltantes}
-%
-Como se mencionó anteriormente, la función principal que se debe completar es la que da fin al sol, aumentando su radio y su color, transformándose en una gigante roja\cite{far}. De esta manera, absorvera la orbita y los planetas Mercurio y Venus, dejando asi la temperatura de la tierra en mas de 1000º, haciendo asi imposible la vida en la tierra.\\
-\\
-La función secundaria que se quiere implementar es tener la vista desde cada uno de los planetas, lo cual permitiria tener una perspectiva distinta del fenómeno y de las traslaciones.
 \section{Plan de Trabajo}
 Se realiza una carta Gantt para darle fechas limites a cada tarea que este proyecto conlleva. Se adjunta para no entorpecer el modelo de este documento y para que la carta Gantt se pueda analizar de mejor manera.
 %
@@ -490,7 +522,7 @@ En la imagen se puede observar un momento de la órbita de los planetas, cuando 
 \section{Conclusiones}
 %
 Como inicio para un buen proyecto, siempre se deben llevar a cabo investigaciones que puedan determinar cual tema abordar y que herramientas utilizar para un optimo desempeño durante este.\\
-El tema abordado nos llena de optimismo para trabajar en el, sumado a los conceptos de computación gráfica aprendidos más la investigación pertinente, nos motiva a dar el 100\% de nuestro esfuerzo para hacer de este un gran proyecto.
+El tema abordado nos llenó de optimismo para trabajar en el, sumado a los conceptos de computación gráfica aprendidos en el aula más la investigación pertinente, nos motivó a dar el 100\% de nuestro esfuerzo para hacer de este un gran proyecto.
 %
 \bibliographystyle{IEEEtran}
 \bibliography{bibi}
